@@ -1,4 +1,4 @@
-# Internation Inc Web Page
+# International Inc Web Page
 
 To test:
 ```bash

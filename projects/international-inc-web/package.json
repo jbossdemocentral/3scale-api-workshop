@@ -4,7 +4,7 @@
     "description": "International Inc Web Page",
     "main": "index.html",
     "scripts": {
-        "start": "",
+        "start": "gulp connect",
         "build": "gulp",
         "dev": "gulp serve"
     },

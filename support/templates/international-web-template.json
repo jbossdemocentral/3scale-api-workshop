@@ -1,0 +1,221 @@
+{
+    "kind": "Template",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "intinc-web",
+        "annotations": {
+            "iconClass": "icon-nodejs",
+            "description": "Application template for the International Inc Web Page"
+        }
+    },
+    "labels": {
+        "app": "intinc-web",
+        "createdBy": "intinc-web-template"
+    },
+    "parameters": [
+        {
+            "description": "Github trigger secret",
+            "name": "GITHUB_TRIGGER_SECRET",
+            "from": "[a-zA-Z0-9]{8}",
+            "generate": "expression",
+            "required": true
+        },
+        {
+            "description": "Github trigger secret",
+            "name": "GENERIC_TRIGGER_SECRET",
+            "from": "[a-zA-Z0-9]{8}",
+            "generate": "expression",
+            "required": true
+        }
+    ],
+    "objects": [
+        {
+            "kind": "BuildConfig",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "intinc-web",
+                "labels": {
+                    "app": "intinc-web"
+                }
+            },
+            "spec": {
+                "source": {
+                    "type": "Git",
+                    "git": {
+                        "uri": "https://github.com/hguerrero/3scale-api-workshop.git",
+                        "ref": "master"
+                    },
+                    "contextDir": "/projects/international-inc-web"
+                },
+                "strategy": {
+                    "type": "Source",
+                    "sourceStrategy": {
+                        "from": {
+                            "kind": "ImageStreamTag",
+                            "namespace": "openshift",
+                            "name": "nodejs:6"
+                        },
+                        "env": []
+                    }
+                },
+                "output": {
+                    "to": {
+                        "kind": "ImageStreamTag",
+                        "name": "intinc-web:latest"
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "GitHub",
+                        "github": {
+                            "secret": "${GITHUB_TRIGGER_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "Generic",
+                        "generic": {
+                            "secret": "${GENERIC_TRIGGER_SECRET}"
+                        }
+                    },
+                    {
+                        "type": "ImageChange"
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "intinc-web",
+                "labels": {
+                    "app": "intinc-web"
+                }
+            },
+            "spec": {
+                "dockerImageRepository": "",
+                "tags": [
+                    {
+                        "name": "latest"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "DeploymentConfig",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "intinc-web",
+                "labels": {
+                    "deploymentConfig": "intinc-web",
+                    "app": "intinc-web"
+                }
+            },
+            "spec": {
+                "replicas": 1,
+                "selector": {
+                    "deploymentConfig": "intinc-web"
+                },
+                "strategy": {
+                    "type": "Rolling"
+                },
+                "template": {
+                    "metadata": {
+                        "labels": {
+                            "deploymentConfig": "intinc-web",
+                            "app": "intinc-web"
+                        },
+                        "name": "intinc-web"
+                    },
+                    "spec": {
+                        "containers": [
+                            {
+                                "name": "intinc-web",
+                                "image": "intinc-web",
+                                "imagePullPolicy": "Always",
+                                "env": [],
+                                "ports": [
+                                    {
+                                        "name": "intincweb-http",
+                                        "containerPort": 8080,
+                                        "protocol": "TCP"
+                                    }
+                                ],
+                                "resources": {},
+                                "terminationMessagePath": "/dev/termination-log",
+                                "securityContext": {}
+                            }
+                        ],
+                        "restartPolicy": "Always",
+                        "dnsPolicy": "ClusterFirst"
+                    }
+                },
+                "triggers": [
+                    {
+                        "type": "ImageChange",
+                        "imageChangeParams": {
+                            "automatic": true,
+                            "containerNames": [
+                                "intinc-web"
+                            ],
+                            "from": {
+                                "kind": "ImageStreamTag",
+                                "name": "intinc-web:latest"
+                            }
+                        }
+                    },
+                    {
+                        "type": "ConfigChange"
+                    }
+                ]
+            }
+        },
+        {
+            "kind": "Service",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "intinc-web-http",
+                "labels": {
+                    "app": "intinc-web"
+                },
+                "annotations": {
+                    "description": "The web server's http port"
+                }
+            },
+            "spec": {
+                "ports": [
+                    {
+                        "port": 8080,
+                        "targetPort": 8080
+                    }
+                ],
+                "selector": {
+                    "deploymentConfig": "intinc-web"
+                }
+            }
+        },
+        {
+            "kind": "Route",
+            "apiVersion": "v1",
+            "metadata": {
+                "name": "intinc-web-http-route",
+                "labels": {
+                    "app": "intinc-web"
+                },
+                "annotations": {
+                    "description": "Route for application's http service"
+                }
+            },
+            "spec": {
+                "host": "${APPLICATION_HOSTNAME}",
+                "to": {
+                    "kind": "Service",
+                    "name": "intinc-web-http"
+                }
+            }
+        }
+    ]
+}
