@@ -5,10 +5,11 @@
     "main": "index.html",
     "scripts": {
         "start": "gulp connect",
-        "build": "gulp",
+        "build": "bower install",
         "dev": "gulp serve"
     },
     "dependencies": {
+        "bower": "^1.8.4",
         "gulp": "^3.8.10",
         "gulp-autoprefixer": "^2.3.1",
         "gulp-connect": "2.0.5",
