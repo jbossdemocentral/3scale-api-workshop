@@ -1,0 +1,11 @@
+{
+  "name": "international-inc",
+  "private": true,
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "1.3.16",
+    "components-font-awesome": "4.7",
+    "bootstrap": "3.3",
+    "jquery": "1.12"
+  }
+}
