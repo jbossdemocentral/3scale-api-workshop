@@ -20,7 +20,6 @@
     } ],
     "scopeMappings": [],
     "clients" : [ {
-      "id" : "1",
       "clientId" : "3scale-admin",
       "protocol" : "openid-connect",
       "standardFlowEnabled" : false,
