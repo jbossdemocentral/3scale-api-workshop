@@ -497,9 +497,9 @@ objects:
              - name: APICURIO_KC_REALM
                value: ${KC_REALM}
              - name: APICURIO_UI_HUB_API_URL
-               value: https://${API_ROUTE}
+               value: http://${API_ROUTE}
              - name: APICURIO_UI_EDITING_URL
-               value: wss://${WS_ROUTE}
+               value: ws://${WS_ROUTE}
              - name: APICURIO_UI_LOGOUT_REDIRECT_URI
                value: /
           resources:
@@ -559,9 +559,6 @@ objects:
       kind: Service
       name: apicurio-studio-api
       weight: 100
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Redirect
     wildcardPolicy: None
 - apiVersion: v1
   kind: Route
@@ -577,9 +574,6 @@ objects:
       kind: Service
       name: apicurio-studio-ws
       weight: 100
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Redirect
     wildcardPolicy: None
 - apiVersion: v1
   kind: Route
@@ -595,9 +589,6 @@ objects:
       kind: Service
       name: apicurio-studio-ui
       weight: 100
-    tls:
-      termination: edge
-      insecureEdgeTerminationPolicy: Redirect
     wildcardPolicy: None
 # Template Parameters
 parameters:
