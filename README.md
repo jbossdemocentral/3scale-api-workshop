@@ -2,7 +2,7 @@
 
 This is a subset of labs from the Red Hat API Integration &amp; Management Workshop. This workshop will guide you on your journey to create your first API managed by Red Hat 3scale API Management.
 
-### Products and Projects
+### Products and Projects
 
 * OpenShift Container Platform
 * Red Hat 3scale API Management
@@ -36,7 +36,7 @@ We recommend you to begin your journey with lab [1. API Design-First Approach](d
 
 If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [instructions](docs/install.md) to install and configure the environment.
 
-### Support & Ownership
+### Support & Ownership
 
 GitHub Repo: [https://github.com/hguerrero/3scale-api-workshop](https://github.com/hguerrero/3scale-api-workshop)
 
