@@ -21,7 +21,7 @@ We know sometime we don't have enough time to go over step by step on the labs. 
 
 If you are planning to follow the next lab, here is a [link](wip-link) to the generated artifacts on this lab.
 
-## Lab Instructions
+## Lab Instructions
 
 ## Summary
 
