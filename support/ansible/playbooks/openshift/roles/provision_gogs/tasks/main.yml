@@ -1,0 +1,8 @@
+---
+- name: Make sure we go back do default project
+  shell: "oc project default"
+
+- name: Create Gogs app
+  shell: "oc new-app -f https://raw.githubusercontent.com/OpenShiftDemos/gogs-openshift-docker/master/openshift/gogs-template.yaml \
+  -p GOGS_VERSION=0.11.34 -p SKIP_TLS_VERIFY=true -p HOSTNAME=gogs.{{ ocp_apps_domain }} -n {{ gogs_project }}"
+  when: configure_only == 'false'

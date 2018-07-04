@@ -1,0 +1,29 @@
+---
+- name: Make sure we go back do default project
+  shell: "oc project default"
+
+- name: Create the 3scale app
+  shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/amp-template.yml \
+  --param WILDCARD_DOMAIN={{ ocp_apps_domain }} --param ADMIN_PASSWORD=password --param WILDCARD_POLICY=Subdomain \
+  --param ADMIN_ACCESS_TOKEN=admintoken --param MASTER_PASSWORD=password --param MASTER_ACCESS_TOKEN=mastertoken -n {{ namespace }}"
+  when: configure_only == 'false'
+
+- name: Wait until 3scale API is available 
+  uri: 
+    url: https://master-admin.{{ ocp_apps_domain }}
+    method: HEAD
+    validate_certs: no
+  register: wait_threescale_result
+  until: wait_threescale_result is succeeded
+  ignore_errors: yes
+  retries: 10
+  delay: 60
+  when: create_tenants
+
+- name: Create tenants
+  include_tasks: ./create-tenants.yml
+  with_sequence: start=1 end={{ usersno }} format=user%d
+  when: create_tenants
+
+- name: Make sure we go back do default project
+  shell: "oc project default"

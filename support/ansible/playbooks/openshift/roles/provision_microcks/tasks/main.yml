@@ -1,0 +1,9 @@
+---
+- name: Make sure we go back do default project
+  shell: "oc project default"
+
+- name: Create Microcks app
+  shell: "oc new-app -f https://raw.githubusercontent.com/microcks/microcks/master/install/openshift/openshift-persistent-full-template.yml \
+  -p KEYCLOAK_ROUTE_HOSTNAME={{ microcks_project }}-sso.{{ ocp_apps_domain }} -p APP_ROUTE_HOSTNAME={{ microcks_project }}.{{ ocp_apps_domain }} \
+  -p OPENSHIFT_MASTER=https://master.{{ ocp_domain }} -p OPENSHIFT_OAUTH_CLIENT_NAME={{ microcks_project }}-client -n {{ microcks_project }}"
+  when: configure_only == 'false'
