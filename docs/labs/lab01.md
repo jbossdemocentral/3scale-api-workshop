@@ -7,15 +7,15 @@
 
 ## Overview
 
-> Describe the general idea of the lab and what is the attendant going to learn.
+As APIs become more widespread in the enterprise, consist design and usage is critically important to improve re-usability. The more re-usable APIs are, the less friction there is for other internal or external teams to make progress. Having design standards and tools baked into the API development and maintenance process is a very powerful way to enable this consistency.
 
 ### Why Red Hat?
 
-> Add the keypoints why the attendant will find value using Red Hat products.
+RedHat is one of the founding members of the Linux Foundation Open API Initiative which is produces the leading standard for REST API specifications. Red Hat conistently uses this format throughout it's tooling, starting with the APICurio API Design editor. 
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to create an OpenAPI Specification with Apicurio Studio. [link](wip-link)
+We know sometimes we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to create an OpenAPI Specification with Apicurio Studio. [link](wip-link)
 
 If you are planning to skip this lab and follow the next one, here is a [link](wip-link) to the generated specification on this lab.
 
