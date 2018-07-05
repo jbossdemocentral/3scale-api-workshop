@@ -32,12 +32,12 @@ A rough agenda for the workshop looks like this:
 
 ### Labs
 
-1. [API Design](docs/labs/lab01.md) - Create an OpenAPI Specification
-1. [API Mocking](docs/labs/lab02.md) - Bring your APIs to Life
-1. [API Management](docs/labs/lab03.md) - Take Control of APIs
-1. [API Security](docs/labs/lab03.md) - Securing APIs with OpenID Connect and Red Hat Single Sign On
-1. [API Developers](docs/labs/lab04.md) - Publishing APIs to Developer Portal
-1. [API Consumption](docs/labs/lab04.md) - Connect Applicaitons and APIs
+1. [API Design](docs/labs/lab01/lab01.md) - Create an OpenAPI Specification
+1. [API Mocking](docs/labs/lab02/lab02.md) - Bring your APIs to Life
+1. [API Management](docs/labs/lab03/lab03.md) - Take Control of APIs
+1. [API Security](docs/labs/lab04/lab04.md) - Securing APIs with OpenID Connect and Red Hat Single Sign On
+1. [API Developers](docs/labs/lab05/lab05.md) - Publishing APIs to Developer Portal
+1. [API Consumption](docs/labs/lab06/lab06.md) - Connect Applicaitons and APIs
 
 We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification](docs/labs/lab01.md)
 
