@@ -1,6 +1,8 @@
 # Red Hat API Integration &amp; Management Workshop
 
-This is a subset of labs from the Red Hat API Integration &amp; Management Workshop. This workshop will guide you on your journey to create your first API managed by Red Hat 3scale API Management.
+This is a subset of labs from the Red Hat API Integration &amp; Management Workshop. This workshop will guide you on your journey to create your first API managed by Red Hat 3scale API Management. We loosely base it on a very basic POC we would normally roll out.
+
+The workshop is intended to be delivered in person, but will provide enough guidance for self-paced consumption.
 
 ### Products and Projects
 
@@ -17,9 +19,16 @@ This is a subset of labs from the Red Hat API Integration &amp; Management Works
 
 ### Agenda
 
+A rough agenda for the workshop looks like this:
+
 * Red Hat 3scale API Management Overview: 20 mins
 * Workshop Overview: 10 mins
 * Labs: 3hrs
+
+
+### Slides
+
+
 
 ### Labs
 
@@ -36,8 +45,16 @@ We recommend you to begin your journey with lab [1. API Design-First Approach](d
 
 If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [instructions](docs/install.md) to install and configure the environment.
 
+### FAQ
+
+
+
 ### Support & Ownership
 
 GitHub Repo: [https://github.com/hguerrero/3scale-api-workshop](https://github.com/hguerrero/3scale-api-workshop)
 
 Feel free to ask [Hugo Guerrero](mailto:hguerrero@redhat.com) if you need some support when there are any questions left or if you need some support.
+
+### Contributing
+
+We welcome all forms of contribution (content, issues/bugs, feedback). Please see the [Contribution Guidelines](docs/contributing.md) for ways to help
