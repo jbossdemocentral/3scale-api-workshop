@@ -251,19 +251,15 @@ So, you want more? Did you notice the link **source** when editing the *Paths* o
 
 ## Summary
 
-In this lab you used Apicurio Studio to create a simple API definition using the OpenAPI Specification.
+In this lab you used Apicurio Studio to create a simple API definition using the OpenAPI Specification. You learned how to author and download a standards compliant API Specification using Red Hat's APICurio.
 
 You can now proceed to [Lab 2](lab02.md)
-
-You learned how to author and download a standards compliant API Specification using Red Hat's APICurio. 
 
 ## Notes and Further Reading
 
 * Apicurio
-	* [Webpage](https://www.apicur.io)
-	* [Roadmap](https://www.apicur.io/roadmap/)
+  * [Webpage](https://www.apicur.io)
+  * [Roadmap](https://www.apicur.io/roadmap/)
 * OpenAPI
-	* [OpenAPI Initiative](https://www.openapis.org/)
-	* [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
-
-
+  * [OpenAPI Initiative](https://www.openapis.org/)
+  * [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)

@@ -53,7 +53,7 @@ r3dh4t1!
 
 ## Lab Instructions
 
-###Step 1: 
+### Step 1:
 
 > *Congratulations!* You have ...
 
