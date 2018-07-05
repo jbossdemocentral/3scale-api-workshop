@@ -6,11 +6,11 @@ The workshop is intended to be delivered in person, but will provide enough guid
 
 ### Products and Projects
 
-* OpenShift Container Platform
-* Red Hat 3scale API Management
-* Red Hat Single Sign On
-* Apicurio
-* Microcks
+* [OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift)
+* [Red Hat 3scale API Management](https://www.redhat.com/en/technologies/jboss-middleware/3scale)
+* [Red Hat Single Sign On](https://access.redhat.com/products/red-hat-single-sign-on)
+* [Apicurio](https://www.apicur.io/)
+* [Microcks](http://microcks.github.io/)
 
 ### Pre-requisites
 
@@ -39,11 +39,11 @@ A rough agenda for the workshop looks like this:
 1. [API Developers](docs/labs/lab04.md) - Publishing APIs to Developer Portal
 1. [API Consumption](docs/labs/lab04.md) - Connect Applicaitons and APIs
 
-We recommend you to begin your journey with lab [1. API Design-First Approach](docs/labs/lab1.md)
+We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification](docs/labs/lab01.md)
 
 ### Installation
 
-If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [instructions](docs/install.md) to install and configure the environment.
+If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [install instructions](docs/install.md) to install and configure the environment.
 
 ### FAQ
 

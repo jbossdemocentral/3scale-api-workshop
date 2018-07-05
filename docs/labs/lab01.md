@@ -1,6 +1,6 @@
 # API Design
 
-### Create an OpenAPI Specification using Red Hat's Apicurio
+### Create an OpenAPI Specification using Apicurio Studio
 
 * Duration: 10 mins
 * Audience: API Owner, Product Manager, Developers, Architects
@@ -15,7 +15,7 @@
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to create an OpenAPI Specification with Red Hat's Apicurio. [link](wip-link)
+We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to create an OpenAPI Specification with Apicurio Studio. [link](wip-link)
 
 If you are planning to skip this lab and follow the next one, here is a [link](wip-link) to the generated specification on this lab.
 
@@ -216,7 +216,7 @@ Let's start crafting your API.
 		        "type": "office",
 		        "status": "1"
 		    }
-	]
+		]
 		```
 
 	![design-response-example](../images/design-20.png "Response Example")
@@ -251,7 +251,9 @@ So, you want more? Did you notice the link **source** when editing the *Paths* o
 
 ## Summary
 
-In this lab you used Red Hat's Apicurio to create a simple API definition using the OpenAPI Specification.
+In this lab you used Apicurio Studio to create a simple API definition using the OpenAPI Specification.
+
+You can now proceed to [Lab 2](lab02.md)
 
 > Explain what the student accomplish.
 
