@@ -55,7 +55,7 @@ configure_only | Do not install the software, just configure existing installati
 create_tenants | Whether the workshop  should be installed in a multitenant mode or not. 3scale admin domains and developer portals for each of the users created during installation will be created. | true | Yes, if *threescale* is enabled
 create_realms | If installing in multitenant mode, this will enable the creation of a RH SSO security realm for each one of the users created during installation. | true | No
 
-An example inventory that installs all the components in multitenant mode from the *bastion* machine looks like this:
+An [example inventory](../support/ansible/inventory/workshop.inventory.example) that installs all the components in multitenant mode from the *bastion* machine looks like this:
 
 ```bash
 [workshop]
