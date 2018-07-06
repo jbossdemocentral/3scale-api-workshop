@@ -64,10 +64,10 @@ Your 3scale Admin Portal provides access to a number of configuration features.
     ```bash
     https://userX-admin.apps.GUID.openshift.opentlc.com/
     ```
-    
+
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
 
-1. Accept the self-signed certificate.
+1. Accept the self-signed certificate if you haven't.
 
     ![selfsigned-cert](images/00-selfsigned-cert.png "Self-Signed Cert")
 
@@ -171,10 +171,10 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 1. Click on the **Update the Staging Environment** to save the changes and check the connection between client, gateway and API.
 
     ![08-update-staging.png](images/08-update-staging.png)
-    
+
     *If everything works, you will get a green message on the left*.
 
-1.  Click on **Back to Integration &amp; Configuration** link to return to your API overview.
+1. Click on **Back to Integration &amp; Configuration** link to return to your API overview.
 
     ![08aa-back-to-integration.png](images/08aa-back-to-integration.png)
 
@@ -190,7 +190,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 ## Summary
 
-You can now proceed to [Lab 4](lab04.md)
+You can now proceed to [Lab 4](../lab04/lab04.md)
 
 > Explain what the student accomplish.
 
@@ -199,5 +199,3 @@ You can now proceed to [Lab 4](lab04.md)
 * [Red Hat 3scale API Management](http://microcks.github.io/)
 * [Developers All-in-one 3scale install](https://developers.redhat.com/blog/2017/05/22/how-to-setup-a-3scale-amp-on-premise-all-in-one-install/)
 * [ThoughtWorks Technology Radar - Overambitious API gateways](https://www.thoughtworks.com/radar/platforms/overambitious-api-gateways)
-
-

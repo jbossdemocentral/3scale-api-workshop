@@ -255,7 +255,7 @@ So, you want more? Did you notice the link **source** when editing the *Paths* o
 
 In this lab you used Apicurio Studio to create a simple API definition using the OpenAPI Specification. You learned how to author and download a standards compliant API Specification using Red Hat's APICurio.
 
-You can now proceed to [Lab 2](lab02.md)
+You can now proceed to [Lab 2](../lab02/lab02.md)
 
 ## Notes and Further Reading
 
