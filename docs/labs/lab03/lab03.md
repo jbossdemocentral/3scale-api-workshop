@@ -55,7 +55,7 @@ r3dh4t1!
 
 ## Lab Instructions
 
-### Step 1: Define your API
+### Step 1: Define your API Proxy
 
 Your 3scale Admin Portal provides access to a number of configuration features.
 
@@ -65,7 +65,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
     https://userX-admin.apps.GUID.openshift.opentlc.com/
     ```
     
-    *Remember to replace the GUID with your [environment](#environment) values and your user number.*
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
 
 1. Accept the self-signed certificate.
 
@@ -75,91 +75,114 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![01-login.png](images/01-login.png)
 
-1. If it's the first time you access the 3scale portal, dismiss and close the wizard by clicking on the top right **X**.
+1. The first page you will land is the *API Management Dashboard*. Click on the **API** menu link.
 
-    ![01a-wizard.png](images/01a-wizard.png)
+    ![01a-dashboard.png](images/01a-dashboard.png)
 
-1. The first page you will land is the API tab. From here we will create our API definition. Click on the `Integration` link.
+1. This is the *API Overview* page. Here you can take an overview of all your services. Click on the **Integration** link.
 
     ![02-api-integration.png](images/02-api-integration.png)
 
-4. Click on the `edit integration settings` to edit the API settings for the gateway.
+1. Click on the **edit integration settings** to edit the API settings for the gateway.
 
     ![03-edit-settings.png](images/03-edit-settings.png)
 
-5. Select the **APIcast self-managed** Gateway deployment option.
+1. Keep select the **APIcast** deployment option in the *Gateway* section.
 
     ![04-apicast.png](images/04-apicast.png)
 
-6. Keep the **API Key (user_key)** Authentication.
+1. Scroll down and keep the **API Key (user_key)** Authentication.
 
     ![05-authentication.png](images/05-authentication.png)
 
-7. Click on **Update Service**
+1. Click on **Update Service**.
 
-8. Click on the **add the Base URL of your API and save the configuration** button
+1. Click on the **add the Base URL of your API and save the configuration** button
 
-9. Expand the **mapping rules** section to define the allowed methods on our exposed API.
+    ![04-base-url](images/04-base-url.png)
 
-    > **Note:** the default mapping is the root ("/") of our API resources, something that we might want to avoid.
+1. Scroll down and expand the **mapping rules** section to define the allowed methods on our exposed API.
+
+    *The default mapping is the root ("/") of our API resources, something that we might want to avoid*.
 
     ![07b-mapping-rules.png](images/07b-mapping-rules.png)
 
-10. Click on the **Metric or Method (Define)**  link.
+1. Click on the **Metric or Method (Define)**  link.
 
     ![07b-mapping-rules-define.png](images/07b-mapping-rules-define.png)
 
-11. Click on the **New Method** link in the *Methods* section.
+1. Click on the **New Method** link in the *Methods* section.
 
     ![07b-new-method.png](images/07b-new-method.png)
 
-12. Fill in the information for your Fuse Method.
+1. Fill in the information for your Fuse Method.
 
-    **Friendly name:** `Get Customers`
+    * Friendly name: **Get Locations**
 
-    **System name:** `customers_all`
+    * System name: **locations_all**
 
-    **Description:** `Method to return all customers`
+    * Description: **Method to return all locations**
 
     ![07b-new-method-data.png](images/07b-new-method-data.png)
 
-13. Click on **Create Method**
+1. Click on **Create Method**.
 
-14. **Optional:** Add the `Get Customer` method if you followed the instructions in the previous part of this lab to search by `{id}`. Name it `customer_get`.
-
-15. Click on the **Add mapping rule** link
+1. Click on the **Add mapping rule** link
 
     ![07b-add-mapping-rule.png](images/07b-add-mapping-rule.png)
 
-16. Click on the edit icon next to the GET mapping rule.
+1. Click on the edit icon next to the GET mapping rule.
 
     ![07b-edit-mapping-rule.png](images/07b-edit-mapping-rule.png)
 
-17. Enter `/myfuselab/customer/all` as the Pattern.
+1. Type in the *Pattern* text box the following: 
 
-18. Select `customers_all` as Method.
+    ```bash
+    /locations
+    ```
+
+1. Select **locations_all** as Method from the combo box.
 
     ![07b-getall-rule.png](images/07b-getall-rule.png)
 
-19. *Optional::* Click on the **Add Mapping Rule** button to add the `customer_get` method mapping.
 
-20. Fill in the information for accessing your API:
+1. Scroll back to the top of the page. Fill in the information for accessing your API:
 
-    **Private Base URL:** `http://camel-ose-springboot-xml:80`
+    * Private Base URL: **http://camel-ose-springboot-xml:80**
 
-    **Staging Public Base URL:** `http://customer-api-staging.<OPENSHIFT-SERVER-IP>.nip.io:80`
+    * Staging Public Base URL: **https://location-api-staging.amp.apps.GUID.openshift.opentlc.com:443**
 
-    **Production Public Base URL:** `http://customer-api-production.<OPENSHIFT-SERVER-IP>.nip.io:80`
+    * Production Public Base URL: **https://location-api.amp.apps.GUID.openshift.opentlc.com:443**
+
+    *Remember to replace the GUID with your [environment](#environment) value*.
+
+    *We are using the internal API service, as we are deploying our services inside the same OpenShift cluster*.
 
     ![07-baseurl-configuration.png](images/07-baseurl-configuration.png)
 
-    > **Note:** We are using the internal API service, as we are deploying our services inside the same OpenShift cluster.
+1. Scroll down to the **API Test GET request**.
 
-21. Scroll down to the **API Test GET request**.
+1. Type in the textbox:
 
-22. Enter `/myfuselab/customer/all`.
+    ```bash
+    /locations
+    ```
 
-> *Congratulations!* You have ...
+1. Click on the **Update the Staging Environment** to save the changes and check the connection between client, gateway and API.
+
+    ![08-update-staging.png](images/08-update-staging.png)
+    
+    *If everything works, you will get a green message on the left*.
+
+1.  Click on **Back to Integration &amp; Configuration** link to return to your API overview.
+
+    ![08aa-back-to-integration.png](images/08aa-back-to-integration.png)
+
+1. Click on the **Promote v.1 to Production** button to promote your configuration from staging to production.
+
+    ![08a-promote-production.png](images/08a-promote-production.png)
+
+*Congratulations!* You have configured 3scale access control layer as a proxy to only allow authenticated calls to your backend API.
 
 ## Steps Beyond
 
