@@ -112,7 +112,7 @@ r3dh4t1!
 1. Update the API call examples to reflect your real Fuse API calls.
 
     *Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab. You can also copy and paste the [example](support/homepage.example) we prepared for you*.
-    
+
 1. Click the **Publish** button.
 
 1. Refresh your Developer Portal's browser tab to check the changes. Your Developer Portal should now look like this:
@@ -124,13 +124,13 @@ r3dh4t1!
     ![16a-signup-limited.png](images/16a-signup-limited.png)
 
 1. Fill in your information and an email to register as a developer. Click on the **Sign up** button.
-    
+
     ![16b-signup-form.png](images/16b-signup-form.png)
 
 1. The system will try to send a message with an activation link.
 
     ![16bb-signup-thankyou.png](images/16bb-signup-thankyou.png)
-    
+
     *Currently the lab environment doesn't have a configured email server, so we won't be able to receive the email*.
 
 1. Go back to your *Admin Portal* tab and navigate to **Developers** to activate the new account.
@@ -140,7 +140,7 @@ r3dh4t1!
 1. Find your user under the *Accounts* and click the **Activate** link.
 
     ![16cc-activate-account.png](images/16cc-activate-account.png)
-    
+
     *Your user is now active and can log into the portal*.
 
 ### Step 2: Login to Developer Portal
@@ -177,7 +177,7 @@ r3dh4t1!
 
 ## Summary
 
-You can now proceed to [Lab 5](lab05.md)
+You can now proceed to [Lab 6](lab06/lab06.md)
 
 > Explain what the student accomplish.
 
@@ -198,5 +198,3 @@ Red Hat 3scale Developer Portal's CMS consists of a few elements:
 * [Developer Portal Documentation](https://access.redhat.com/documentation/en-us/red_hat_3scale/2.2/html/developer_portal/)
 * [Liquid markup language](https://github.com/Shopify/liquid)
 * [And Overview of Liquid](https://www.shopify.com/partners/blog/115244038-an-overview-of-liquid-shopifys-templating-language)
-
-

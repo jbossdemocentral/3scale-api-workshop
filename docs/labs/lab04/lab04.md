@@ -1,4 +1,6 @@
-# API Security
+# Lab 4
+
+## API Security
 
 ### Securing APIs with OpenID Connect and Red Hat Single Sign On
 
@@ -15,7 +17,7 @@
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to configure your service using Red Hat 3scale API Management. [link](wip-link)
+We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](https://vimeo.com/middlewarepro/3scale-security-oidc-demo) where you can see how to configure OpenID Connect for your service using Red Hat Single Sign On.
 
 If you are planning to follow the next lab, here is a [link](wip-link) to the gated service endpoint.
 
@@ -71,4 +73,3 @@ You can now proceed to [Lab 5](lab05.md)
 
 * [Red Hat 3scale API Management](http://microcks.github.io/)
 * [Setup OIDC with 3scale](https://developers.redhat.com/blog/2017/11/21/setup-3scale-openid-connect-oidc-integration-rh-sso/)
-

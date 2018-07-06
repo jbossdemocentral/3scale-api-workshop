@@ -4,6 +4,8 @@ This is a subset of labs from the Red Hat API Integration &amp; Management Works
 
 The workshop is intended to be delivered in person, but will provide enough guidance for self-paced consumption.
 
+## Introduction
+
 ### Products and Projects
 
 * [OpenShift Container Platform](https://www.redhat.com/en/technologies/cloud-computing/openshift)
@@ -16,7 +18,6 @@ The workshop is intended to be delivered in person, but will provide enough guid
 
 * Knowledge of the current version of the OpenAPI specification: [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
 
-
 ### Agenda
 
 A rough agenda for the workshop looks like this:
@@ -25,22 +26,21 @@ A rough agenda for the workshop looks like this:
 * Workshop Overview: 10 mins
 * Labs: 3hrs
 
-
 ### Slides
-
-
 
 ### Labs
 
 Session 1: API Design, Deployment and Management
+
 1. [API Design](docs/labs/lab01/lab01.md) - Create an OpenAPI Specification
 1. [API Mocking](docs/labs/lab02/lab02.md) - Bring your APIs to Life
 1. [API Management](docs/labs/lab03/lab03.md) - Take Control of APIs
 
 Session 2: API Security and Usage
+
 1. [API Security](docs/labs/lab04/lab04.md) - Securing APIs with OpenID Connect and Red Hat Single Sign On
 1. [API Developers](docs/labs/lab05/lab05.md) - Publishing APIs to Developer Portal
-1. [API Consumption](docs/labs/lab06/lab06.md) - Connect Applicaitons and APIs
+1. [API Consumption](docs/labs/lab06/lab06.md) - Connect Applications and APIs
 
 We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification](docs/labs/lab01.md)
 
@@ -49,8 +49,6 @@ We recommend you to begin your journey with the first lab [API Design - Create a
 If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [install instructions](docs/install.md) to install and configure the environment.
 
 ### FAQ
-
-
 
 ### Support & Ownership
 
