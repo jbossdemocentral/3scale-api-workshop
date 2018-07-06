@@ -12,7 +12,7 @@ You can download the OpenShift Client Tools from [Red Hat Developers Portal Site
 
 You'll want to know how to [fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) a Git repository, and how to [check out a branch](https://git-scm.com/docs/git-checkout#git-checkout-emgitcheckoutemltbranchgt).
 
-###Procedure
+### Procedure
 
 3scale API Workshop can be installed using automated Ansible playbooks or following the manual steps.
 
