@@ -322,7 +322,7 @@
   "users" : [ {
     "username" : "user",
     "enabled" : true,
-    "email" : "user@openshift.opentlc.com",
+    "email" : "user@openshiftworkshop.com",
     "credentials" : [ {
       "type" : "password",
       "value" : "password"

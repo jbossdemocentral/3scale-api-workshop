@@ -7,10 +7,10 @@
     "users" : [ {
       "username" : "userx",
       "enabled" : true,
-      "email" : "userx@openshift.opentlc.com",
+      "email" : "userx@openshiftworkshop.com",
       "credentials" : [ {
         "type" : "password",
-        "value" : "password"
+        "value" : "r3dh4t1!"
       } ],
       "realmRoles" : [ "admin", "offline_access", "uma_authorization" ],
       "clientRoles" : {

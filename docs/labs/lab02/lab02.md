@@ -30,13 +30,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshift.opentlc.com
+https://master.GUID.openshiftworkshop.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshift.opentlc.com
+https://master.1234.openshiftworkshop.com
 ```
 
 **Credentials:**
@@ -64,7 +64,7 @@ Follow this instructions to set up the repository.
 1. Open a browser window and navigate to:
 
     ```bash
-    http://gogs.apps.GUID.openshift.opentlc.com/user/login?redirect_to=
+    http://gogs.apps.GUID.openshiftworkshop.com/user/login?redirect_to=
     ```
 
 1. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
@@ -106,7 +106,7 @@ Follow this instructions to set up the repository.
 1. Copy the browser tab URL. Store that URL address as you will use it in the next steps of the lab. The URL should look like the following:
 
     ```bash
-    http://gogs.apps.GUID.openshift.opentlc.com/user1/locations-api/raw/master/Locations-UserX.yaml
+    http://gogs.apps.GUID.openshiftworkshop.com/user1/locations-api/raw/master/Locations-UserX.yaml
     ```
 
     *If you feel more comfortable, you can also copy and paste the RAW button link from the previous step*.
@@ -116,7 +116,7 @@ Follow this instructions to set up the repository.
 1. Open a browser window and navigate to:
 
     ```bash
-    http://microcks.apps.GUID.openshift.opentlc.com/
+    http://microcks.apps.GUID.openshiftworkshop.com/
     ```
 
 1. To reuse your OpenShift credentials, click on the **Openshift v3** button.
@@ -147,7 +147,7 @@ Follow this instructions to set up the repository.
 1. In the Add Job dialog, type in the following information replacing **X** with your user number and GUID with your working [environment](#environment):
 
     * Name: **Locations-UserX**
-    * Repository URL: **http://gogs.apps.GUID.openshift.opentlc.com/userX/locations-api/raw/master/Locations-UserX.yaml**
+    * Repository URL: **http://gogs.apps.GUID.openshiftworkshop.com/userX/locations-api/raw/master/Locations-UserX.yaml**
 
     *You can also copy and paste the raw url you saved from the Gogs repository (Step 0)*.
 
@@ -191,10 +191,10 @@ We now have a working REST mock service listening for requests. We will use an o
     https://onlinecurl.com/
     ```
 
-1. Enter the following URL: **http://microcks.apps.GUID.openshift.opentlc.com + {{your-user-api-mocks-url}}**. Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
+1. Enter the following URL: **http://microcks.apps.GUID.openshiftworkshop.com + {{your-user-api-mocks-url}}**. Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
 
     ```bash
-    http://microcks.apps.GUID.openshift.opentlc.com/rest/Locations-UserX/1.0.0/locations
+    http://microcks.apps.GUID.openshiftworkshop.com/rest/Locations-UserX/1.0.0/locations
     ```
 
 1. Click the **START YOUR CURL** button.

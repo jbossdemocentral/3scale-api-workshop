@@ -30,13 +30,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshift.opentlc.com
+https://master.GUID.openshiftworkshop.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshift.opentlc.com
+https://master.1234.openshiftworkshop.com
 ```
 
 **Credentials:**
@@ -60,7 +60,7 @@ r3dh4t1!
 1. Open a browser window and navigate to:
 
     ```bash
-    http://apicurio-studio.apps.GUID.openshift.opentlc.com/
+    http://apicurio-studio.apps.GUID.openshiftworkshop.com/
     ```
 
 1. Log in using your designated [user and password](#environment).

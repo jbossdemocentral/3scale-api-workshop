@@ -5,8 +5,8 @@ apicurio_project: apicurio
 gogs_project: gogs
 microcks_project: microcks
 sso_version: ose-v1.4.9
-ocp_domain: 3901.openshift.opentlc.com
-ocp_apps_domain: apps.3901.openshift.opentlc.com
+ocp_domain: 3901.openshiftworkshop.com
+ocp_apps_domain: apps.3901.openshiftworkshop.com
 usersno: 20
 threescale: true
 apicurio: true

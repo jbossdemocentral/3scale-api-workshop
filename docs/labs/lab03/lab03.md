@@ -30,13 +30,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshift.opentlc.com
+https://master.GUID.openshiftworkshop.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshift.opentlc.com
+https://master.1234.openshiftworkshop.com
 ```
 
 **Credentials:**
@@ -62,7 +62,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 1. Open a browser window and navigate to:
 
     ```bash
-    https://userX-admin.apps.GUID.openshift.opentlc.com/
+    https://userX-admin.apps.GUID.openshiftworkshop.com/
     ```
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
@@ -150,9 +150,9 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     * Private Base URL: **http://camel-ose-springboot-xml:80**
 
-    * Staging Public Base URL: **https://location-api-staging.amp.apps.GUID.openshift.opentlc.com:443**
+    * Staging Public Base URL: **https://location-api-staging.amp.apps.GUID.openshiftworkshop.com:443**
 
-    * Production Public Base URL: **https://location-api.amp.apps.GUID.openshift.opentlc.com:443**
+    * Production Public Base URL: **https://location-api.amp.apps.GUID.openshiftworkshop.com:443**
 
     *Remember to replace the GUID with your [environment](#environment) value*.
 

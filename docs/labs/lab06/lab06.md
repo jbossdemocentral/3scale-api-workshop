@@ -28,13 +28,13 @@ Check with your instruction the *GUID* number of your current workshop environme
 Example in case of *GUID* = **1234**: 
 
 ```bash
-https://master.GUID.openshift.opentlc.com
+https://master.GUID.openshiftworkshop.com
 ```
 
 becomes =>
 
 ```bash
-https://master.1234.openshift.opentlc.com
+https://master.1234.openshiftworkshop.com
 ```
 
 **Credentials:**
