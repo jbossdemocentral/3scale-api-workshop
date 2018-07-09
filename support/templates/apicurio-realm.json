@@ -1088,7 +1088,7 @@
         "APICURIO_UI_URL/*"
       ],
       "webOrigins": [
-        "+"
+        "*"
       ],
       "notBefore": 0,
       "bearerOnly": false,
