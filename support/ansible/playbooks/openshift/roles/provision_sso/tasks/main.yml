@@ -2,9 +2,15 @@
 - name: Make sure we go back do default project
   shell: "oc project default"
 
-- name: Create secrets for RH SSO
-  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-image-stream.json -n openshift"
+- name: Check if image streams are available
+  shell: "oc describe is redhat-sso72-openshift -n openshift"
+  register: imagestream_exists
   when: configure_only == 'false'
+  ignore_errors: true
+
+- name: Create image streams for RH SSO
+  shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/sso/sso72-image-stream.json -n openshift"
+  when: configure_only == 'false' and imagestream_exists.failed
 
 - name: Create secrets for RH SSO
   shell: "oc create -f https://raw.githubusercontent.com/jboss-openshift/application-templates/{{ sso_version }}/secrets/sso-app-secret.json -n {{ sso_project }}"
