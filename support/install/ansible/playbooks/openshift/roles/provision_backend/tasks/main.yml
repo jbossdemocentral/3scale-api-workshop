@@ -31,3 +31,7 @@
   shell: "oc new-app s2i-fuse70-spring-boot-camel -p GIT_REPO=https://github.com/hguerrero/3scale-api-workshop \
   -p CONTEXT_DIR=/projects/location-service -p APP_NAME=location-service -p GIT_REF=master -n {{ backend_project }}"
   when: configure_only == 'false'
+
+- name: Create Backend API route
+  shell: "oc expose svc location-service -n {{ backend_project }}"
+  when: configure_only == 'false'
