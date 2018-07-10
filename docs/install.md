@@ -22,10 +22,10 @@ You'll want to know how to [fork](https://help.github.com/articles/fork-a-repo/)
     git clone https://github.com/hguerrero/3scale-api-workshop.git
     ```
 
-1. Change to the project *support* folder:
+1. Change to the project *install* folder:
 
     ```bash
-    cd 3scale-api-workshop/support/
+    cd 3scale-api-workshop/support/install
     ```
 
 ### Installing using Ansible
@@ -77,21 +77,22 @@ create_realms=true
 ```
 
 1. Login to the OpenShift cluster.
-    
+
     * If running on the cluster bastion become root:
 
       ```bash
       sudo su -
       ```
-      
+
     * If running in an external client login as *opentlc-mgr* user:
-    
+
       ```bash
       oc login -u opentlc-mgr https://[master-hostname] --insecure-skip-tls-verify
       ```
 1. Run the Ansible playbook.
 
-    ```
+    ```bash
     ansible-playbook -i ansible/inventory/workshop.inventory ansible/playbooks/openshift/install.yml 
     ```
+
 *If you install on OpenShift, it is required that you have cluster-admin access in order to set up the required roles for creating namespaces and managing resources in those namespaces*.

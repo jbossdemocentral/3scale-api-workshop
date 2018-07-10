@@ -10,11 +10,11 @@ Application templates allow you deploy applications to OpenShift by filling out 
 
 First, import the Fuse image streams:
 
-    oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/GA/fis-image-streams.json
+    oc create -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/fuse-image-streams.json
 
 Then create the quickstart template:
 
-    oc create -f https://raw.githubusercontent.com/jboss-fuse/application-templates/GA/quickstarts/spring-boot-camel-template.json
+    oc create -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/spring-boot-camel-template.json
 
 Now when you use "Add to Project" button in the OpenShift console, you should see a template for this quickstart. 
 
