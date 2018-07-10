@@ -41,6 +41,7 @@ sso_project | Namespace where Red Hat Single Sign On will be installed. | rh-sso
 apicurio_project | Namespace where Apicurio will be installed. | apicurio | Yes, if *apicurio* is enabled
 gogs_project | Namespace where Gogs will be installed. | gogs | Yes, if *gogs* is enabled
 microcks_project | Namespace where Microcks will be installed | microcks | Yes, if *microcks* is enabled
+backend_project | Namespace where Backend will be installed | international | Yes, if *backend* is enabled
 sso_version | The version tag used for getting the RH SSO templates. | ose-v1.4.9 | No
 ocp_domain | Root domain of the OpenShift cluster. For example: `devday.openshiftworkshop.com` | | Yes
 ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.devday.openshiftworkshop.com`  | | Yes
@@ -50,6 +51,7 @@ apicurio | Enable Apicurio Studio. | true | No
 gogs | Enable Gogs Git Service. |  true | No
 microcks | Enable Microcks. | true | No
 sso | Enable Red Hat Single Sign On. | true | No
+backend | Enable App Backend Service | true | No
 user_projects | | true | No
 configure_only | Do not install the software, just configure existing installations. The software should be running in the same namespaces defined in the above vars. | false | No
 create_tenants | Whether the workshop  should be installed in a multitenant mode or not. 3scale admin domains and developer portals for each of the users created during installation will be created. | true | Yes, if *threescale* is enabled

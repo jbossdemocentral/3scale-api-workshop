@@ -1,5 +1,5 @@
 ---
-- name: Make sure we go back do default project
+- name: Make sure we go back to default project
   shell: "oc project default"
 
 - name: Check if image streams are available
@@ -86,5 +86,5 @@
   with_sequence: start=1 end={{ usersno }} format=user%d
   when: create_realms
 
-- name: Make sure we go back do default project
+- name: Make sure we go back to default project
   shell: "oc project default"

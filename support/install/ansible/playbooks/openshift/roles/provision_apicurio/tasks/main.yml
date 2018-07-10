@@ -1,5 +1,5 @@
 ---
-- name: Make sure we go back do default project
+- name: Make sure we go back to default project
   shell: "oc project default"
 
 - name: Get SSO token
