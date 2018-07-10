@@ -110,7 +110,7 @@ Let's start crafting your API.
             "name": "International Inc Corporate Office",
             "location": {
                 "lat": 51.5013673,
-                "long": -0.1440787
+                "lng": -0.1440787
             },
             "type": "headquarter",
             "status": "1"
@@ -193,7 +193,7 @@ Let's start crafting your API.
                 "name": "International Inc Corporate Office",
                 "location": {
                     "lat": 51.5013673,
-                    "long": -0.1440787
+                    "lng": -0.1440787
                 },
                 "type": "headquarter",
                 "status": "1"
@@ -203,7 +203,7 @@ Let's start crafting your API.
                 "name": "International Inc North America",
                 "location": {
                     "lat": 40.6976701,
-                    "long": -74.259876
+                    "lng": -74.259876
                 },
                 "type": "office",
                 "status": "1"
@@ -213,7 +213,7 @@ Let's start crafting your API.
                 "name": "International Inc France",
                 "location": {
                     "lat": 48.859,
-                    "long": 2.2069746
+                    "lng": 2.2069746
                 },
                 "type": "office",
                 "status": "1"

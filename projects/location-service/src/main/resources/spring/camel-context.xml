@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd        http://camel.apache.org/schema/spring       http://camel.apache.org/schema/spring/camel-spring.xsd">
+    <bean class="com.redhat.samples.processor.ResultProcessor" id="locationProcessor"/>
+    <camelContext id="camel" xmlns="http://camel.apache.org/schema/spring">
+        <restConfiguration apiContextPath="api-docs" bindingMode="auto"
+            component="undertow" contextPath="/" enableCORS="true" port="8080">
+            <apiProperty key="cors" value="true"/>
+            <apiProperty key="api.title" value="Location Service"/>
+            <apiProperty key="api.version" value="1.0.0"/>
+        </restConfiguration>
+        <rest path="/locations">
+            <get uri="/">
+                <description>Retrieve all locations data</description>
+                <to uri="direct:getalllocations"/>
+            </get>
+            <get uri="/{id}">
+                <description>Retrieve location by id</description>
+                <to uri="direct:getlocation"/>
+            </get>
+        </rest>
+        <route id="location_all">
+            <from id="_from1" uri="direct:getalllocations"/>
+            <to id="_to1" uri="sql:select * from locations?dataSource=dataSource"/>
+            <process id="_process1" ref="locationProcessor"/>
+            <log id="_log1" message="${body}"/>
+        </route>
+        <route id="location_id">
+            <from id="_from2" uri="direct:getlocation"/>
+            <to id="_to2" uri="sql:select * from locations where id=:#id?dataSource=dataSource"/>
+            <process id="_process2" ref="locationProcessor"/>
+            <choice>
+            	<when>
+            		<simple>${body.size} > 0</simple>
+            		<setBody>
+		            	<simple>${body[0]}</simple>
+		            </setBody>
+            	</when>
+            	<otherwise>
+            		<setHeader headerName="HTTP_RESPONSE_CODE">
+            			<constant>404</constant>
+            		</setHeader>
+            	</otherwise>
+            </choice>
+            <log id="_log2" message="${body}"/>
+        </route>
+    </camelContext>
+</beans>
