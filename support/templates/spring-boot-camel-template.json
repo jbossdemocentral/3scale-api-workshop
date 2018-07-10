@@ -358,7 +358,11 @@
           }
         ],
         "selector": {
-          "deploymentConfig": "${APP_NAME}"
+          "component": "${APP_NAME}",
+          "deploymentconfig": "${APP_NAME}",
+          "project": "${APP_NAME}",
+          "provider": "s2i",
+          "version": "${APP_VERSION}"
         }
       }
     },
