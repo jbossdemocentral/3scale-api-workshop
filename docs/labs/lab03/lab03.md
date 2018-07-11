@@ -17,17 +17,21 @@
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to configure your service using Red Hat 3scale API Management. [link](wip-link)
+We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to configure your service using Red Hat 3scale API Management.
 
-If you are planning to follow the next lab, here is a [link](wip-link) to the gated service endpoint.
+If you are planning to follow to the next lab, there is an already running API proxy for the Location API Service in this endpoint:
+
+```bash
+http://location-service-api.amp.apps.GUID.openshiftworkshop.com
+```
 
 ### Environment
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
 https://master.GUID.openshiftworkshop.com

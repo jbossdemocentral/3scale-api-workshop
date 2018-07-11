@@ -1,11 +1,11 @@
 # Lab 2
 
-## API Mocking
+## API Deployment
 
-### Bring your APIs to life
+### Deploying APIs to OpenShift
 
-* Duration: 20 mins
-* Audience: Developers, Architects, Testers, Quality Engineers
+* Duration: 15 mins
+* Audience: Developers, Architects, System Admins, Operators
 
 ## Overview
 
@@ -17,9 +17,13 @@
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to mock the API you previously created using Microcks. [link](wip-link)
+We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to deploy a Red Hat Fuse application to OpenShift. [link](wip-link)
 
-If you are planning to follow the next lab, here is a [link](wip-link) to the REST mock service running the Location API.
+If you are planning to follow to the next lab, there is an already deployed and running Location API Service in this endpoint:
+
+```bash
+http://location-service-international.GUID.openshiftworkshop.com
+```
 
 ### Environment
 
