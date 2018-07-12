@@ -5,7 +5,7 @@
 ### Deploying APIs to OpenShift
 
 * Duration: 15 mins
-* Audience: Developers, Architects, System Admins, Operators
+* Audience: Developers, Architects, System Administrators, Operators
 
 ## Overview
 
@@ -17,12 +17,12 @@
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to deploy a Red Hat Fuse application to OpenShift. [link](wip-link)
+We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to deploy a Red Hat Fuse application to OpenShift.
 
 If you are planning to follow to the next lab, there is an already deployed and running Location API Service in this endpoint:
 
 ```bash
-http://location-service-international.GUID.openshiftworkshop.com
+http://location-service-international.apps.GUID.openshiftworkshop.com
 ```
 
 ### Environment
@@ -59,135 +59,93 @@ r3dh4t1!
 
 ## Lab Instructions
 
-### Step 0: Setup the collaboration environment using Git (Gogs)
-
-For this lab we require a collaboration environment based on Git. You can use GitHub, GitLab or other Git provider to finish this lab. If you don't want to use your personal account, the provided lab environment has an user provided for you in Gogs. 
-
-Follow this instructions to set up the repository.
+### Step 1: Deploying Fuse-based APIs
 
 1. Open a browser window and navigate to:
 
     ```bash
-    http://gogs.apps.GUID.openshiftworkshop.com/user/login?redirect_to=
+    https://master.GUID.openshiftworkshop.com/console
     ```
 
-1. Log into Gogs using your designated [user and password](#environment). Click on **Sign In**.
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
 
-    ![mock-sign-in](images/mock-01.png "Sign In")
+1. Accept the self-signed certificate if you haven't.
 
-1. In the main page, click in the **+** sign in the right top corner to display the *New* menu. Click the **New Migration** option.
+    ![selfsigned-cert](images/00-selfsigned-cert.png "Self-Signed Cert")
 
-    ![mock-gogs-new](images/mock-02.png "New Migration")
+1. Log into OpenShift using your designated [user and password](#environment). Click on **Sign In**.
 
-1. Fill in the information of the repository migration with the following values:
+    ![01-login](images/deploy-01.png "OpenShift Login")
 
-    * Clone Address: **https://github.com/hguerrero/3scaleworkshop-openapi.git**
-    * Owner: **UserX**
-    * Repository Name: **locations-api**
+1. You are now in OpenShift's main page. Click on your **userX** project in the right side of the screen.
 
-    ![mock-gogs-migration](images/mock-03.png "New Migration Repository")
+    ![02-user-project](images/deploy-02.png "User Project")
 
-1. Click on **Migrate Repository** to fork the GitHub repo into Gogs.
+1. From your main project page, click **Browse Catalog**.
 
-1. Click on **Upload File** to load the OpenAPI Specification you created and download in [Lab 1](lab01.md).
+    ![03-browse-catalog](images/deploy-03.png "Catalog")
 
-    ![mock-gogs-upload](images/mock-04.png "Upload File")
+1. Scroll down the page and search for the **Red Hat Fuse 7.0 Camel with Spring Boot** template. Click on the link.
 
-1. Select the file from your local disk folder where you downloaded the file.
+    ![04-Fuse70-template](images/deploy-04.png "Template")
 
-    ![mock-gogs-file](images/mock-05.png "Upload Commit")
+1. Click the **Next >** button.
 
-1. Click on the **Commit Changes** button to commit the file.
+    ![05-template-information](images/deploy-05.png "Information")
 
-1. Click the filename link **Locations-UserX.yaml** to open and review the file.
+1. Fill in the configuration information with your API implementation github repo details:
 
-    ![mock-gogs-file](images/mock-06.png "File Uploaded")
+    * Application Name: **location-service**
+    * Git Repository URL: **https://github.com/hguerrero/3scale-api-workshop**
+    * Git Repository context: **/projects/location-service**
+    * Git Reference: **master**
 
-1. If everything is fine, click the **RAW** button to get the raw download version of the file.
+    ![06-template-configuration](images/deploy-06.png "Configuration")
 
-    ![mock-gogs-raw](images/mock-07.png "Raw File")
+1. Click **Next >**.
+  
+1. In this moment we will not create any bindings. So click **Create**.
 
-1. Copy the browser tab URL. Store that URL address as you will use it in the next steps of the lab. The URL should look like the following:
+    ![07-template-binding](images/deploy-07.png "Binding")
 
-    ```bash
-    http://gogs.apps.GUID.openshiftworkshop.com/user1/locations-api/raw/master/Locations-UserX.yaml
-    ```
+1. Your service will be provisioned in a moment. Click the **Continue to the project overview** and then click the **Close** button.
 
-    *If you feel more comfortable, you can also copy and paste the RAW button link from the previous step*.
+    ![08-template-results](images/deploy-08.png "Results")
 
-### Step 1: Create a Microcks Job
+### Step 2: Configure External Resources
 
-1. Open a browser window and navigate to:
+Did you notice your deployment is failing? This is because your API requires information on the database host and port to connect. Let's fix this problem.
 
-    ```bash
-    http://microcks.apps.GUID.openshiftworkshop.com/
-    ```
+There are several ways to provision information of the environment to your OpenShift deployment. Most of the times you will use a combination of [Config Maps](https://docs.openshift.com/container-platform/latest/dev_guide/configmaps.html), [Environment Variables](https://docs.openshift.com/container-platform/latest/dev_guide/environment_variables.html) and, [Secrets](https://docs.openshift.com/container-platform/latest/dev_guide/secrets.html). 
 
-1. To reuse your OpenShift credentials, click on the **Openshift v3** button.
+In this lab we will use Environment Variables.
 
-    ![mock-microcks-login](images/mock-08.png "Microcks Login")
+1. From your overview page, click the **location-service** link to access the deployment configuration.
 
-1. Log in into Microks using your designated [user and password](#environment).
+    ![09-deployment-config](images/deploy-09.png)
 
-    ![mock-openshift-login](images/mock-09.png "Openshift Login")
+1. In the deployment configuration page, change to the **Environment** tab. Here click the **Add Value** link *twice* to get two (2) new rows.
 
-1. You will be asked to fill up more information on your user. Type the following options replacing **X** with your user number:
+    ![10-environment](images/deploy-10.png)
 
-    * Username: **userX**
-    * Email: **userX@example.com**
-    * First name: **userX**
-    * Last name: **userX**
+1. Fill in with the following information regarding the location of the International Inc Database.
 
-    ![mock-microcks-profile](images/mock-10.png "Microcks Profile")
+    * Name: **MYSQL\_SERVICE\_HOST**, Value: **mysql.international.svc**
+    * Name: **MYSQL\_SERVICE\_PORT**, Value: **3306**
 
-1. You are now in the main Microcks page. Click the **Jobs** button to access the Jobs page.
+    ![11-environment-variables](images/deploy-11.png)
 
-    ![mock-jobs](images/mock-11.png "Job")
+1. Click **Save** to update the configuration and redeploy the service.
 
-1. Click the **ADD JOB...** button to create your first job.
+1. Go back to the **Overview** page to monitor your updated deployment.
 
-    ![mock-add-job](images/mock-12.png "Add Job")
+1. You should now see the blue circle in the *location-service* pod. 
 
-1. In the Add Job dialog, type in the following information replacing **X** with your user number and GUID with your working [environment](#environment):
+    ![12-running-pod](images/deploy-12.png)
 
-    * Name: **Locations-UserX**
-    * Repository URL: **http://gogs.apps.GUID.openshiftworkshop.com/userX/locations-api/raw/master/Locations-UserX.yaml**
+### Step 3: Test Location API Service
 
-    *You can also copy and paste the raw url you saved from the Gogs repository (Step 0)*.
-
-    ![mock-job-details](images/mock-13.png "Job Details")
-
-1. After your job is created, click the **ACTION** menu and select the **Activate** option.
-
-    ![mock-job-activate](images/mock-14.png "Activate Job")
-
-1. Repet the last step, but now select the **Start** option. This will start the synchronization job.
-
-    ![mock-job-start](images/mock-15.png "Start Job")
-
-1. Refresh your window to get it to the latest state.
-
-1. You will se 3 labels next to your Job. Click the **Services** label.
-
-    ![mock-job-services](images/mock-16.png "Job Services")
-
-1. In the dialog you will see your service listed. Click on the **Locations-UserX - 1.0.0.** link.
-
-    ![mock-job-service](images/mock-17.png "Job Service")
-
-1. Click **OK** to dismiss the dialog.
-
-1. This is your new REST mock service based on the OpenAPI definition you just loaded to Microcks. Click the **Operation GET /locations** link to check the example under that operation.
-
-    ![mock-mock-service](images/mock-18.png "Mock Service")
-
-1. You can check that the example we added to the definition in [Lab 1](lab01.md) will be used to return the mock values. Copy and save the **Mocks URL**, we will use that endopoint to test the REST mock service.
-
-    ![mock-mock-operation](images/mock-19.png "Mock Operation")
-
-### Step 2: Test the REST Mock Service
-
-We now have a working REST mock service listening for requests. We will use an online cURL tool to test it.
+We now have a working Location API Service implementation listening for requests. We will use an online cURL tool to test it.
 
 1. Open a browser window and navigate to:
 
@@ -195,21 +153,23 @@ We now have a working REST mock service listening for requests. We will use an o
     https://onlinecurl.com/
     ```
 
-1. Enter the following URL: **http://microcks.apps.GUID.openshiftworkshop.com + {{your-user-api-mocks-url}}**. Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
+1. Enter the following URL: 
 
     ```bash
-    http://microcks.apps.GUID.openshiftworkshop.com/rest/Locations-UserX/1.0.0/locations
+    http://location-service-userX.apps.GUID.openshiftworkshop.com/locations/1
     ```
+
+    Remember to replace the GUID with your [environment](#environment) values and your user number. It should look like this:
 
 1. Click the **START YOUR CURL** button.
 
-    ![mock-curl-service](images/mock-20.png "cURL Service")
+    ![13-curl-service](images/deploy-13.png "cURL Service")
 
-1. The page will load the response information from the service. You will be able to see the *RESPONSE HEADERS* and the actual *RESPONSE_BODY*. This last part contains the examples we add during the design phase.
+1. The page will load the response information from the service. You will be able to see the *RESPONSE HEADERS* and the actual *RESPONSE_BODY*.
 
-    ![mock-curl-response](images/mock-21.png "cURL Response")
+    ![14-curl-response](images/deploy-14.png "cURL Response")
 
-*Congratulations!* You have successfully configure a Microcks Job to create a REST mock service to test your API.
+*Congratulations!* You successfully deployed your teams Location API Service implementations into OpenShift using Red Hat Fuse 7.0 Spring Boot template.
 
 ## Steps Beyond
 
@@ -217,17 +177,15 @@ We now have a working REST mock service listening for requests. We will use an o
 
 ## Summary
 
-In this lab you used Microcks to configure a REST mock service for the API definition you created in the previous lab. REST mock services allows you to simulate a REST API service when you are in a prototyping stage of your API program journey. 
-
-Microcks allows you to test a number of various responses for client application requests. When deploying API, micro-services or SOA practices at large scale, Microcks solves the problems of providing and sharing consistent documentation and mocks to the involved teams. It acts as a central repository and server that can be used for browsing but also by your Continuous Integration builds or pipelines.
+> Explain what the student accomplish.
 
 You can now proceed to [Lab 3](../lab03/lab03.md)
 
-> Explain what the student accomplish.
-
 ## Notes and Further Reading
 
-* Microcks
-  * [Webpage](http://microcks.github.io/)
-  * [Jenkins Plugin](http://microcks.github.io/automating/jenkins/)
-  * [Installing on OpenShift](http://microcks.github.io/installing/openshift/)
+* [Getting Started with OpenShift Online](https://docs.openshift.com/online/getting_started/index.html)
+* [OpenShift Interactive Portal](https://learn.openshift.com/)
+* [Contract First API Design with Apicurio and Fuse/Camel](http://wei-meilin.blogspot.com/2018/07/fuse-contract-first-api-design-with.html)
+* [Applying API Best Practices in Fuse](http://wei-meilin.blogspot.com/2017/01/red-hat-jboss-fuse-applying-api-best.html)
+
+> Additional links
