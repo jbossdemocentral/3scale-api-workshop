@@ -226,7 +226,7 @@ You can try to use Postman or OpenID Connet playground to test your integration.
 
 ## Summary
 
-You can now proceed to [Lab 5](lab05.md)
+You can now proceed to [Lab 5](lab05/lab05.md)
 
 Now that you can secure your API using three-leg authentication with Red Hat Single Sign-On, you can leverage the current assets of your organization like current LDAP identities or even federate the authentication using other IdP services.
 
