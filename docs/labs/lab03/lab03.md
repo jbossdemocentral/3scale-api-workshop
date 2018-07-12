@@ -152,11 +152,11 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 1. Scroll back to the top of the page. Fill in the information for accessing your API:
 
-    * Private Base URL: **http://camel-ose-springboot-xml:80**
+    * Private Base URL: **http://location-service.user1.svc:80**
 
-    * Staging Public Base URL: **https://location-api-staging.amp.apps.GUID.openshiftworkshop.com:443**
+    * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com:443**
 
-    * Production Public Base URL: **https://location-api.amp.apps.GUID.openshiftworkshop.com:443**
+    * Production Public Base URL: **https://location-userX-api.amp.apps.GUID.openshiftworkshop.com:443**
 
     *Remember to replace the GUID with your [environment](#environment) value*.
 
