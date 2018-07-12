@@ -177,7 +177,7 @@ r3dh4t1!
 
 ## Summary
 
-You can now proceed to [Lab 6](lab06/lab06.md)
+You can now proceed to [Lab 6](../lab06/lab06.md)
 
 > Explain what the student accomplish.
 
