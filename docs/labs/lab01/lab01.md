@@ -13,11 +13,11 @@ As APIs become more widespread in the enterprise, consist design and usage is cr
 
 ### Why Red Hat?
 
-RedHat is one of the founding members of the Linux Foundation Open API Initiative which is produces the leading standard for REST API specifications. Red Hat conistently uses this format throughout it's tooling, starting with the APICurio API Design editor. 
+RedHat is one of the founding members of the Linux Foundation Open API Initiative which is produces the leading standard for REST API specifications. Red Hat consistently uses this format throughout it's tooling, starting with the Apicurio Studio API Design editor.
 
 ### Skipping The Lab
 
-We know sometimes we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to create an OpenAPI Specification with Apicurio Studio. [link](wip-link)
+We know sometimes we don't have enough time to go over step by step on the labs. So here is a [short video](https://youtu.be/FnZwy8KeC-A) where you can see how to create an OpenAPI Specification with Apicurio Studio.
 
 If you are planning to skip this lab and follow the next one, here is a [link](https://github.com/hguerrero/3scaleworkshop-openapi/blob/Lab-01/locations-api/Locations-UserX.yaml) to the specification generated in this lab.
 
