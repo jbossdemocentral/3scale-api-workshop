@@ -53,6 +53,6 @@
 
 - name: Create Microcks app
   shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/microcks-template.yml \
-  -p KEYCLOAK_ROUTE_HOSTNAME=secure-sso-{{sso_project}}.{{ ocp_apps_domain }} -p APP_ROUTE_HOSTNAME={{ microcks_project }}.{{ ocp_apps_domain }} \
+  -p KEYCLOAK_ROUTE_HOSTNAME=sso-{{sso_project}}.{{ ocp_apps_domain }} -p APP_ROUTE_HOSTNAME={{ microcks_project }}.{{ ocp_apps_domain }} \
   -n {{ microcks_project }}"
   when: configure_only == 'false'
