@@ -173,7 +173,7 @@ We now have a working Location API Service implementation listening for requests
 
 ## Steps Beyond
 
-> So, you want more? ...
+Sometimes, something more complex could be making your deployment fail. You can take a deeper look in to the log by clicking the pod and changing to the *Logs* tab. From OpenShift you can also connect to the container through the provided *Terminal* tab.
 
 ## Summary
 
