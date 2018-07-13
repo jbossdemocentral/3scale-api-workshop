@@ -169,7 +169,7 @@ r3dh4t1!
     http://3scale-admin:CLIENT_SECRET@sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/realms/userX
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+    *Remember to replace the GUID with your [environment](#environment) value, your user number and the CLIENT_SECRET you get in the previous step*.
 
     ![06-openid-issuer.png](images/06-openid-issuer.png "OpenID Connect Issuer")
 
