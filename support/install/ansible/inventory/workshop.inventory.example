@@ -2,8 +2,8 @@
 localhost ansible_connection=local
 
 [workshop:vars]
-ocp_domain=apidays.openshiftworkshop.com
-ocp_apps_domain=apps.apidays.openshiftworkshop.com
+ocp_domain=GUID.openshiftworkshop.com
+ocp_apps_domain=apps.GUID.openshiftworkshop.com
 usersno=20
 threescale=true
 apicurio=true
