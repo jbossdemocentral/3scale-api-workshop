@@ -1,11 +1,11 @@
 # API Consumption
 
-### Connect Applications and APIs
+## Connect Applications and APIs
 
 * Duration: 15 mins
 * Audience: API Consumers, Developers, Architects
 
-## Overview
+### Overview
 
 > Describe the general idea of the lab and what is the attendant going to learn.
 
@@ -55,7 +55,7 @@ r3dh4t1!
 
 ### Step 0: Setup the collaboration environment using Git (Gogs)
 
-For this lab we require a collaboration environment based on Git. You can use GitHub, GitLab or other Git provider to finish this lab. If you don't want to use your personal account, the provided lab environment has an user provided for you in Gogs. 
+For this lab we require a collaboration environment based on Git. You can use GitHub, GitLab or other Git provider to finish this lab. If you don't want to use your personal account, the provided lab environment has an user provided for you in Gogs.
 
 Follow this instructions to set up the repository.
 
@@ -127,7 +127,7 @@ International Inc web development create a Node.js application for the company h
     * Git Repository URL: **http://gogs.apps.GUID.openshiftworkshop.com/userX/www-page.git**
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
-    
+
     ![06-template-configuration](images/consume-10.png "Configuration")
 
 1. Click **Create**.
@@ -148,7 +148,7 @@ International Inc web development create a Node.js application for the company h
 
     ![10-application-page](images/consume-13.png "Webpage")
 
-1. This pages uses the unsecured Location API service. It displays the different International Inc offices around the world. 
+1. This pages uses the unsecured Location API service. It displays the different International Inc offices around the world.
 
     ![11-locations-page](images/consume-14.png "Locations Page")
 
@@ -165,7 +165,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
 1. Click on the **locations.html** link to open the file.
 
     ![16-locations-file](images/consume-16.png "Locations File")
-    
+
 1. Change to *edit* mode clicking on the pencil icon on the right side. 
 
     ![17-locations-edit](images/consume-17.png "Locations Edit")
@@ -192,13 +192,13 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
     <!-- Keycloak Login End -->
     ```
-    
+
 1. Here we will add a **Login** button so users can start the Authentication Flow. It will disapear and be replaced with the map when user is logged in. Paste between the markers the following code:
 
     ```bash
     <p><a id="loginUrl" href="#" class="btn btn-primary">Sign In to access the Location API Service</a></p>
     ```
-    
+
 1. Continue scrolling down until you find the next markers:
 
     ```bash
@@ -208,54 +208,54 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
     // Keycloak Config End
     ```
-    
+
 1. Replace the code between the markers with the following snippet:
 
-	```bash
-	var keyOptions = {
-	    url: 'http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth',
-	    realm: 'userX',
-	    clientId: 'CLIENT_ID'
-	};
-	
-	var keycloak = Keycloak(keyOptions);
-	keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
-	    if (authenticated) {
-	        $("<h4>Welcome " + keycloak.idTokenParsed.preferred_username + "</h4> ").insertBefore($('#mapid'));
-	        callService(mymap, keycloak.token);
-	        $('#mapid').show();
-	        $('#loginUrl').hide();
-	    }
-	    else {
-	        $('#mapid').hide();
-	        $('#loginUrl').show();
-	    }
-	}).error(function (data) {
-	    alert('Failed to initialize keycloak: ' + data);
-	});
-	
-	var opts = {
-	    redirectUri: window.location.origin + "/locations.html"
-	};
-	
-	var loginUrl = keycloak.createLoginUrl(opts);
-	document.getElementById('loginUrl').href = loginUrl;
+    ```bash
+    var keyOptions = {
+        url: 'http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth',
+        realm: 'userX',
+        clientId: 'CLIENT_ID'
+    };
+
+    var keycloak = Keycloak(keyOptions);
+    keycloak.init({ onLoad: 'check-sso' }).success(function (authenticated) {
+        if (authenticated) {
+            $("<h4>Welcome " + keycloak.idTokenParsed.preferred_username + "</h4> ").insertBefore($('#mapid'));
+            callService(mymap, keycloak.token);
+            $('#mapid').show();
+            $('#loginUrl').hide();
+        }
+        else {
+            $('#mapid').hide();
+            $('#loginUrl').show();
+        }
+    }).error(function (data) {
+        alert('Failed to initialize keycloak: ' + data);
+    });
+
+    var opts = {
+        redirectUri: window.location.origin + "/locations.html"
+    };
+
+    var loginUrl = keycloak.createLoginUrl(opts);
+    document.getElementById('loginUrl').href = loginUrl;
     ```
-    
+
     *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*.
-        
+
 1. Continue scrolling down until you find the next markers:
 
     ```bash
-    /* Keycloack Params Start*/ 
+    /* Keycloack Params Start*/
 
     /* Keycloak Params End */
-    ```    
+    ```
 
 1. Paste between the markers the following code:
 
     ```bash
-    , token 
+    , token
     ```
 
 1. Finally the last marker:
@@ -278,14 +278,14 @@ In this step, we will edit the code provided by development to add keycloak. Key
     },
     // Keycloak Ajax End
     ```
-    
+
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
 1. Scroll to the bottom of the page. Update the *Commit Changes* inputs and click **Commit Changes** to save your work.
 
     ![18-commit-changes](images/consume-18.png "Commit Changes")
 
-###Step 3: Updating OpenShift Deployment
+### Step 3: Updating OpenShift Deployment
 
 OpenShift let you automatically redeploy your changes when you setup a Continuous Integration / Continuous Deployment (CI/CD) pipeline through the use of webhook. For this lab we will trigger the new build and deployment manually through the OpenShift Console.
 
@@ -294,13 +294,13 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 1. Open the kebab menu in the right side of the application information row. Click **Start Build**. 
 
     ![19-deployment-menu](images/consume-19.png "Deployment Menu")
-    
+
 1. A new build will be triggered. Expand the row by clicking the **Builds** Icon.
 
     ![20-build-configuraion](images/consume-20.png "Build Configuration")
-    
+
     *The build process checks out the code from the git repo, runs a source-to-image container image build, and redeploys the container with the new image using a rolling upgrade strategy*.
-    
+
 1. Wait for the build to complete and the rolling upgrade to finish to test your new deployment.
 
     ![21-build-complete](images/consume-21.png "Build Complete")
@@ -308,14 +308,14 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 1. Refresh the browser tab where you opened the International Inc web page or click the route URL to check out the changes.
 
     ![22-updated-app](images/consume-22.png "Updated App")
-    
+
     _You can notice now the **Sign In** button in the page_.
-    
-###Step 4: Test the Single Sign On Integration
+
+### Step 4: Test the Single Sign On Integration
 
 1. Let's test the integration. Click the **Sign In** button.
 
-1. You are being redirected to Red Hat Single Sign On **Login Page**. Login using the user credentials you created in the [API Security Lab](../lab03/lab03.md)
+1. You are being redirected to Red Hat Single Sign On **Login Page**. Login using the user credentials you created in the [API Security Lab](../lab04/lab04.md#step-2-add-user-to-realm)
 
     * Username: **apiuser**
     * Password: **apipassword**
@@ -342,4 +342,3 @@ This is the last lab of this workshop.
 
 * [Red Hat 3scale API Management](http://microcks.github.io/)
 * [Setup OIDC with 3scale](https://developers.redhat.com/blog/2017/11/21/setup-3scale-openid-connect-oidc-integration-rh-sso/)
-
