@@ -152,7 +152,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 1. Scroll back to the top of the page. Fill in the information for accessing your API:
 
-    * Private Base URL: **http://location-service.user1.svc:80**
+    * Private Base URL: **http://location-service.user1.svc:8080**
 
     * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com:443**
 
