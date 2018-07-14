@@ -4,7 +4,7 @@
 
 ### Securing APIs with OpenID Connect and Red Hat Single Sign On
 
-* Duration: 10 mins
+* Duration: 20 mins
 * Audience: API Owners, Product Managers, Developers, Architects
 
 ## Overview
@@ -169,7 +169,7 @@ r3dh4t1!
     http://3scale-admin:CLIENT_SECRET@sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/realms/userX
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value, your user number and the CLIENT_SECRET you get in the previous step*.
+    *Remember to replace the GUID with your [environment](#environment) value, your user number and the CLIENT_SECRET you get in the [Step 1](#step-1-get-red-hat-single-sign-on-service-account-credentials)*.
 
     ![06-openid-issuer.png](images/06-openid-issuer.png "OpenID Connect Issuer")
 
@@ -226,11 +226,11 @@ You can try to use Postman or OpenID Connet playground to test your integration.
 
 ## Summary
 
-You can now proceed to [Lab 5](../lab05/lab05.md)
-
 Now that you can secure your API using three-leg authentication with Red Hat Single Sign-On, you can leverage the current assets of your organization like current LDAP identities or even federate the authentication using other IdP services.
 
 For more information about Single Sign-On, you can check its [page](https://access.redhat.com/products/red-hat-single-sign-on).
+
+You can now proceed to [Lab 5](../lab05/lab05.md)
 
 ## Notes and Further Reading
 

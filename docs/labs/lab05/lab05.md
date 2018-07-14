@@ -57,7 +57,7 @@ r3dh4t1!
 
 ## Lab Instructions
 
-### Step 1: Register new accounts using Developer Portal
+### Step 1: Customizing Developer Portal
 
 1. Open a browser window and navigate to:
 
@@ -119,6 +119,8 @@ r3dh4t1!
 
     ![16-updated-devportal.png](images/16-updated-devportal.png)
 
+### Step 2: Register New Accounts Using Developer Portal
+
 1. Take the place of one of your developers and signup for the **Basic** plan.
 
     ![16a-signup-limited.png](images/16a-signup-limited.png)
@@ -143,7 +145,7 @@ r3dh4t1!
 
     *Your user is now active and can log into the portal*.
 
-### Step 2: Login to Developer Portal
+### Step 3: Login to Developer Portal
 
 1. As your portal is not currently public, you will need your portal code to login. You can get the code in your admin portal navigating to: **Settings > Developer Portal > Domains &amp; Access**.
 
@@ -177,9 +179,9 @@ r3dh4t1!
 
 ## Summary
 
-You can now proceed to [Lab 6](../lab06/lab06.md)
-
 In this lab you discovered how to add a developer facing experience to your APIs. Developers in your organization or outside of it can now register, gain access to API keys and develop sample applications.
+
+You can now proceed to [Lab 6](../lab06/lab06.md)
 
 ## Notes and Further Reading
 

@@ -4,7 +4,7 @@
 
 ### Take control of your APIs
 
-* Duration: 30 mins
+* Duration: 15 mins
 * Audience: API Owners, Product Managers, Developers, Architects
 
 ## Overview
@@ -194,9 +194,9 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 ## Summary
 
-You can now proceed to [Lab 4](../lab04/lab04.md)
-
 You set up an API management service and API proxies to control traffic into your API. From now on you will be able to issue keys and rights to users wishing to access the API.
+
+You can now proceed to [Lab 4](../lab04/lab04.md)
 
 ## Notes and Further Reading
 
