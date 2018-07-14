@@ -179,7 +179,7 @@ r3dh4t1!
 
 You can now proceed to [Lab 6](../lab06/lab06.md)
 
-> Explain what the student accomplish.
+In this lab you discovered how to add a developer facing experience to your APIs. Developers in your organization or outside of it can now register, gain access to API keys and develop sample applications.
 
 ## Notes and Further Reading
 
