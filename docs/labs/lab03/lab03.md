@@ -9,11 +9,11 @@
 
 ## Overview
 
-> Describe the general idea of the lab and what is the attendant going to learn.
+Once you have APIs deployed in your environment, it becomes critically important to manage who may use them and for what purpose. You also need to begin to track usage of these different users to know who is/is not succeeding in their usage. For this reason in this lab you will be adding management capabilites to the API to give you control and visibility of it's usage.
 
 ### Why Red Hat?
 
-> Add the keypoints why the attendant will find value using Red Hat products.
+Red Hat provides one the leading API Management tools which provide management services. The 3scale API Management solution enables you to quickly and easy protect and manage your APIs.
 
 ### Skipping The Lab
 
@@ -196,7 +196,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 You can now proceed to [Lab 4](../lab04/lab04.md)
 
-> Explain what the student accomplish.
+You set up an API management service and API proxies to control traffic into your API. From now on you will be able to issue keys and rights to users wishing to access the API.
 
 ## Notes and Further Reading
 
