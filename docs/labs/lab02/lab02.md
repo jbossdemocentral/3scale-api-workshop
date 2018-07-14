@@ -9,11 +9,11 @@
 
 ## Overview
 
-> Describe the general idea of the lab and what is the attendant going to learn.
+The code which implements any of the APIs in your organization is part of it's software infrastructure. This code needs to be well managed since it may need to scale to handle high volume, deployed in multiple locations and updated smoothly. In this lab you will learn how to deploy API backend code on the OpenShift container management platform which provides state of the art tools for managing deployed code.
 
 ### Why Red Hat?
 
-> Add the keypoints why the attendant will find value using Red Hat products.
+Red Hat OpenShift is one of the leading container management platforms available in the market. It is based on the highly popular Kubernetes Open Source project which Red Hat is a leading contributor to. 
 
 ### Skipping The Lab
 
@@ -177,7 +177,7 @@ Sometimes, something more complex could be making your deployment fail. You can 
 
 ## Summary
 
-> Explain what the student accomplish.
+In this lab you were able to launch a new software service which implements and API and manage it using the OpenShift platform. Subsequently you were able to call the API to see if it was really deployed and accessible in the right place.  
 
 You can now proceed to [Lab 3](../lab03/lab03.md)
 
