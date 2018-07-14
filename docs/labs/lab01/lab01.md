@@ -95,7 +95,7 @@ You are now in the main screen to edit your APIs. Different from other API edito
 
 Let's start crafting your API.
 
-1. Time to prepare our data definitions for the API. Click on the **Add Now** button under the *Definitions*.
+1. Time to prepare our data definitions for the API. Click on the **Add a definition** link under the *Definitions*.
 
     ![design-add-definition](images/design-15.png "Add Definition")
 
@@ -127,7 +127,7 @@ Let's start crafting your API.
 
 ### Step 3: Adding Paths
 
-1. Click on **Add Now** in the *Paths* section. As you can notice in the warning, APIs need at least one path.
+1. Click on the **Add a path** link under the *Paths* section. APIs need at least one path.
 
     ![design-add-path](images/design-06.png "Add Path")
 
@@ -151,7 +151,7 @@ Let's start crafting your API.
 
     *As you can notice, Apicurio Editor guides you with warning for the elements missing in your design*.
 
-1. Click on the **Add Response** button to edit the response for this operation.
+1. Click on the **Add a response** link under *Responses* to edit the response for this operation.
 
     ![design-add-response](images/design-10.png "Add Response")
 
@@ -239,7 +239,7 @@ Let's start crafting your API.
 
     ![design-download-yaml](images/design-23.png "Download API")
 
-1. This will start the download of your API definition file. **Save** it to your local disk drive. 
+1. This will start the download of your API definition file. It could take a few seconds to start the download. **Save** it to your local disk drive. 
 
 1. You can open the file with any text editor. Take a look at the source file. Everything is there.
 
