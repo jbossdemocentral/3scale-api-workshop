@@ -7,11 +7,11 @@
 
 ### Overview
 
-> Describe the general idea of the lab and what is the attendant going to learn.
+APIs provide the building blocks for applications, but it is applications which deliver functionality to the end users. hence to see APIs in action it helps to see how applications can call APIs to provide new functionality. In this lab you'll be able to create a simple web application which consumes the API you built earlier ojn in the exercises.  
 
 ### Why Red Hat?
 
-> Add the keypoints why the attendant will find value using Red Hat products.
+Applications can be built from many technologies. In this case we use a simple web application, but a wide range of Red Hat and non-Red Hat technologies could be used.
 
 ### Skipping The Lab
 
@@ -336,7 +336,7 @@ So, you want more? You can explore in detail the documentation on the Javascript
 
 This is the last lab of this workshop.
 
-> Explain what the student accomplish.
+In total you should now have been able to follow all the steps from designing and API, deploying it's code, issuing keys, connecting OpenID connect and calling it from an application. This gives you a brief overview of the creation and deployment of an API. There are many variations and extensions of these general principles to explore!
 
 ## Notes and Further Reading
 
