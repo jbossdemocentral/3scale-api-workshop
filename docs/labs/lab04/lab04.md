@@ -9,11 +9,11 @@
 
 ## Overview
 
-> Describe the general idea of the lab and what is the attendant going to learn.
+Once you have APIs in your organization and have applications being written, you also want to be sure in many cases that thee various types of users of the APIs are correctly authenticated. In this lab you will discover how to set up the widely used OpenID connect pattern for Authentication. 
 
 ### Why Red Hat?
 
-> Add the keypoints why the attendant will find value using Red Hat products.
+The Red Hat SSO product provides important functionality for managing identities at scale. In this lab you can see how it fits together with 3scale and OpenShift.
 
 ### Skipping The Lab
 
