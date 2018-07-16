@@ -184,7 +184,10 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![08a-promote-production.png](images/08a-promote-production.png)
 
-*Congratulations!* You have configured 3scale access control layer as a proxy to only allow authenticated calls to your backend API.
+*Congratulations!* You have configured 3scale access control layer as a proxy to only allow authenticated calls to your backend API. 3scale is also now:
+
+* Authenticating (If you test with an incorrect API key it will fail) 
+* Recording calls (Visit the Analytics tab to check who is calling your API).
 
 ## Steps Beyond
 
