@@ -17,12 +17,10 @@ Red Hat provides one the leading API Management tools which provide management s
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to configure your service using Red Hat 3scale API Management.
-
 If you are planning to follow to the next lab, there is an already running API proxy for the Location API Service in this endpoint:
 
 ```bash
-http://location-service-api.amp.apps.GUID.openshiftworkshop.com
+https://location-service-api.amp.apps.GUID.openshiftworkshop.com
 ```
 
 ### Environment
@@ -190,7 +188,9 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
 ## Steps Beyond
 
-> So, you want more? ...
+In this lab we just covered the basic creating of a proxy for our API service. Red Hat 3scale API Management also allows us to get a track of the security (as you can see in the next lab) as well as the usage of our API. If getting value from APIs is also important to you, 3scale allows you to monetize your APIs with it's embedded billing system.
+
+Try to navigate through the rest of the tabs of your Administration Portal. Did you notice that there are application plans associated to your API? Application Plans allow you to take actions based on the usage of your API, like doing rate limiting or charging by hit or monthly usage.
 
 ## Summary
 

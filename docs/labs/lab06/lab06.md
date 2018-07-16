@@ -15,9 +15,11 @@ Applications can be built from many technologies. In this case we use a simple w
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to configure your application to consume an API service managed with 3scale. 
+If you decide to skip the lab you can check how a SSO enabled web applications looks like:
 
-If you are planning to follow the next lab, here is a [link](wip-link) to the deployed application.
+```bash
+http://www-international.apps.GUID.openshiftworkshop.com
+```
 
 ### Environment
 
@@ -284,6 +286,24 @@ In this step, we will edit the code provided by development to add keycloak. Key
 1. Scroll to the bottom of the page. Update the *Commit Changes* inputs and click **Commit Changes** to save your work.
 
     ![18-commit-changes](images/consume-18.png "Commit Changes")
+
+1. Because we are using self signed certificates, you will need to accept the certificate for the secured endpoint. Open a new browser tab or window and navigate to:
+
+    ```bash
+    https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com/locations
+    ```
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+1. Accept the self-signed certificate if you haven't.
+
+    ![selfsigned-cert](images/00-selfsigned-cert.png "Self-Signed Cert")
+
+1. You will see that your call succeded if you see the following text in your browser:
+
+    ```bash
+    Authentication parameters missing
+    ```
 
 ### Step 3: Updating OpenShift Deployment
 
