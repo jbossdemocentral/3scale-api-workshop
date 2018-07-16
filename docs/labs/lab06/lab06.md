@@ -307,6 +307,8 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
 ### Step 3: Update Red Hat Single Sign On Application Callback
 
+Redirect URLs are a critical part of the OAuth flow. After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL. Because the redirect URL will contain sensitive information, it is critical that the service doesn’t redirect the user to arbitrary locations.
+
 1. Open a browser window and navigate to:
 
     ```bash
