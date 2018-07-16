@@ -103,7 +103,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![04-base-url](images/04-base-url.png)
 
-1. Scroll down and expand the **mapping rules** section to define the allowed methods on our exposed API.
+1. Scroll down and expand the **MAPPING RULES** section to define the allowed methods on our exposed API.
 
     *The default mapping is the root ("/") of our API resources, something that we might want to avoid*.
 
@@ -147,6 +147,57 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![07b-getall-rule.png](images/07b-getall-rule.png)
 
+### Step 2: Define your API Policies
+
+Red Hat 3scale API Management provides units of functionality that modify the behavior of the API Gateway without the need to implement code. These management components are know in 3scale as policies.
+
+The order in which the policies are executed, known as the “policy chain”, can be configured to introduce differing behavior based on the position of the policy in the chain. Adding custom headers, perform URL rewriting, enable CORS, and configurable caching are some of the most common API gateway capabilities implemented as policies.
+
+1. Scroll down and expand the **POLICIES** section to define the allowed methods on our exposed API.
+
+    ![01-policies](images/policies-01.png "Policies")
+
+    *The default policy in the Policy Chain is APIcast. This is the main policy and must of the times you want to keep it*.
+
+1. Click the **Add Policy** link to add a new policy to the chain.
+
+    ![02-add-policy](images/policies-02.png)
+
+    _Out-of-the-box 3scale includes a set of policies you can use to modify the way your API gateway behaves. For this lab, we will focus on the **Cross Origin Resource Sharing (CORS)** one as we will use it in the consumption lab_.
+
+1. Click in the **CORS** link to add the policy.
+
+    ![03-cors-policy](images/policies-03.png "CORS")
+
+1. Put your mouse over the right side of the policy name to enable the reorder of the chain. Drag and drop the CORS policy to the top of the chain.
+
+    ![04-chain-order](images/policies-04.png "Chain Order")
+
+1. Now **CORS** policy will be executed before the **APIcast**. Click the **CORS** link to edit the policy.
+
+    ![05-cors-configuration](images/policies-05.png "Cors Configuration")
+
+1. In the *Edit Policy* section, click the green **+** button to add the allowed headers.
+
+    ![06-add-headers](images/policies-06.png "Add Allow Headers")
+
+1. Type **Authorization** in the *Allowed headers* field. 
+
+    ![07-authorization-header](images/policies-07.png "Add Authorization Header")
+
+1. Tick the **allow_credentials** checkbox and fill in with a star (**\***) the *allow_origin* text box.
+
+    ![08-allow-origin](images/policies-08.png "Allow Origin")
+
+1. Click twice the green **+** button under *ALLOW_METHODS* to enable two combo boxes for the CORS allowed methods.
+
+1. Select **GET** from the first box and **OPTIONS** from the second box.
+
+    ![09-allow-methods](images/policies-09.png "Allow Methods")
+
+1. Click the **Submit** button to save the policy configuration.
+
+### Step 3: Configure the Upstream Endpoint
 
 1. Scroll back to the top of the page. Fill in the information for accessing your API:
 
