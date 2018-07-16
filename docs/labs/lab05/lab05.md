@@ -161,7 +161,7 @@ r3dh4t1!
 
 1. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your newly created **Client ID** and **Client Secret**.
 
-    ![16g-user-key.png](images/16g-user-key.png)
+    ![16g-user-credentials.png](images/16g-user-credentials.png "Application Credentials")
 
     *Copy down this credentials as it you will use them to authenticate yourself to the managed API*.
 
