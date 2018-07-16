@@ -159,11 +159,11 @@ r3dh4t1!
 
     ![16f-dev-signin.png](images/16f-dev-signin.png)
 
-1. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your **User Key**.
+1. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your newly created **Client ID** and **Client Secret**.
 
     ![16g-user-key.png](images/16g-user-key.png)
 
-    *Copy down this key as it is used to authenticate yourself to the managed API*.
+    *Copy down this credentials as it you will use them to authenticate yourself to the managed API*.
 
 *Congratulations!* You have successfuly customized your Developer Portal and completed a Sign Up process.
 
