@@ -6,6 +6,8 @@ This page describes the installation of the 3scale API Workshop from the latest 
 
 ### Pre-requisites
 
+You will need an OpenShift Container Platform to install this workshop on. You can order a vanilla provisioning from the Red Hat Product Demo System (RHPDS) following this [instructions](https://mojo.redhat.com/docs/DOC-1175640).
+
 To install the 3scale API Workshop, you need to have a host machine with the latest stable release version of the OpenShift client tools.
 
 You can download the OpenShift Client Tools from [Red Hat Developers Portal Site](https://developers.redhat.com/products/openshift/download/) or follow the instructions on how to [Install the CLI](https://docs.openshift.com/container-platform/3.9/cli_reference/get_started_cli.html#installing-the-cli) from the openshift.com webpage.
