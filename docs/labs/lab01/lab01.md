@@ -63,6 +63,16 @@ r3dh4t1!
     http://apicurio-studio.apps.GUID.openshiftworkshop.com/
     ```
 
+1. Accept the self-signed certificate if you haven't: 
+
+    1. If using Google Chrome click the **ADVANCED** link.
+
+      ![selfsigned-cert](images/00-selfsigned-cert.png "Self-Signed Cert")
+
+    1. Then click the **Proceed to..** link to accept the certificate and add the exception.
+
+      ![00-selfsigned-cert-accept](images/00-selfsigned-cert-accept.png  "Self-Signed Cert Proceed")
+
 1. Log in using your designated [user and password](#environment).
 
     ![design-login](images/design-01.png "Login")
@@ -171,9 +181,13 @@ Let's start crafting your API.
 
     ![design-media-json](images/design-14.png "Media Type JSON")
 
-1. Click on the *Choose Type* combo box to display the different types. Select **location** from the displayed options.
+1. Click on the *Choose Type* combo box to display the different types. First select **Array**.
 
     ![design-location-type](images/design-18.png "Location Type")
+
+1. This will enable a second combo box. In this new box, select **location** from the displayed options.
+
+    ![design-location-type](images/design-18a.png "Location Type")
 
 1. Click the **Add an example** link to add a Response Example. 
 
