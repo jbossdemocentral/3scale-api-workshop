@@ -87,7 +87,7 @@ Follow this instructions to set up the repository.
 
     *You now have a working copy of the International Inc Web page. If you know how to, clone the repository to work locally, or you can continue working using Gogs online editor*.
 
-### Step 1: Deploying International Inc Web Page
+### Step 1: Deploying International Inc Web Page
 
 International Inc web development create a Node.js application for the company home page. They added a map service to locate the offices around the world. In this step you will deploy that application.
 
@@ -305,7 +305,47 @@ In this step, we will edit the code provided by development to add keycloak. Key
     Authentication parameters missing
     ```
 
-### Step 3: Updating OpenShift Deployment
+### Step 3: Update Red Hat Single Sign On Application Callback
+
+1. Open a browser window and navigate to:
+
+    ```bash
+    http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/admin/userX/console/
+    ```
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
+
+1. Log into Red Hat Single Sign On using your designated [user and password](#environment). Click on **Sign In**.
+
+    ![00-login-sso.png](images/00-login-sso.png "RH SSO Login")
+
+1. Select **Clients** from the left menu.
+
+    ![00-clients.png](images/00-clients.png "Clients")
+
+    *3scale, through it's zync component, already synchronized the application information into the Red Hat SSO security realm*.
+
+1. Click on the **CLIENT_ID** link to view the details.
+
+    ![24-client-application](images/consume-24.png "Client Application")
+
+    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app). It will easily identificable as its and hexadecimal name*.
+
+1. Scroll down, type in and select the following options in the application configuration:
+
+    * Access Type: **Public**
+    * Standard Flow Enabled: **ON**
+    * Implicit Flow Enabled: **OFF**
+    * Valid Redirect URIs: **http://www-userX.apps.GUID.openshiftworkshop.com/\***
+    * Web Origins: **\***
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
+
+    ![25-client-config](images/consume-25.png "Client Configuration")
+
+1. Finally, click **Save** button to persist the changes.
+
+### Step 4: Updating OpenShift Deployment
 
 OpenShift let you automatically redeploy your changes when you setup a Continuous Integration / Continuous Deployment (CI/CD) pipeline through the use of webhook. For this lab we will trigger the new build and deployment manually through the OpenShift Console.
 
@@ -331,7 +371,7 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
     _You can notice now the **Sign In** button in the page_.
 
-### Step 4: Test the Single Sign On Integration
+### Step 5: Test the Single Sign On Integration
 
 1. Let's test the integration. Click the **Sign In** button.
 
