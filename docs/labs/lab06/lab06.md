@@ -338,7 +338,7 @@ Redirect URLs are a critical part of the OAuth flow. After a user successfully a
     * Access Type: **Public**
     * Standard Flow Enabled: **ON**
     * Implicit Flow Enabled: **OFF**
-    * Valid Redirect URIs: **http://www-userX.apps.GUID.openshiftworkshop.com/\***
+    * Valid Redirect URIs: **[http://www-userX.apps.GUID.openshiftworkshop.com/*](http://www-userX.apps.GUID.openshiftworkshop.com/*)**
     * Web Origins: **\***
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number.*
