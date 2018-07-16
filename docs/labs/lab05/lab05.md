@@ -105,7 +105,7 @@ r3dh4t1!
 
 1. Update the API call examples to reflect your real Fuse API calls.
 
-    *Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab. You can also copy and paste the [example](support/homepage.example) we prepared for you*.
+    *Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab. You can also copy and paste the [example](https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/docs/labs/lab05/support/homepage.example) we prepared for you*.
 
 1. Click the **Publish** button.
 
