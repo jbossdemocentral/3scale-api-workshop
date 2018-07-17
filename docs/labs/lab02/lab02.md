@@ -128,8 +128,10 @@ In this lab we will use Environment Variables.
 
 1. Fill in with the following information regarding the location of the International Inc Database.
 
-    * Name: **MYSQL\_SERVICE\_HOST**, Value: **mysql.international.svc**
-    * Name: **MYSQL\_SERVICE\_PORT**, Value: **3306**
+    * Name: **MYSQL\_SERVICE\_HOST**
+    * Value: **mysql.international.svc**
+    * Name: **MYSQL\_SERVICE\_PORT**
+    * Value: **3306**
 
     ![11-environment-variables](images/deploy-11.png)
 

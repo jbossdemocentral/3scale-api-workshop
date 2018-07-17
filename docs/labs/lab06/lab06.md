@@ -25,9 +25,9 @@ http://www-international.apps.GUID.openshiftworkshop.com
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
 https://master.GUID.openshiftworkshop.com
@@ -140,11 +140,38 @@ International Inc web development create a Node.js application for the company h
 
     _If you clicked the **Close** button, click **Overview** in the left side menu to review the deployment status_.
 
-1. In the overview page, wait until the pod circle stays blue continously. This means the application was successfully deployed and now is ready to listen to requests.
+1. From your overview page, click the white space next to the **www** link to expand the deployment information.
 
-1. Click the external route to open a new tab and connect to *International Inc* new website.
+    ![09-deployment-config](images/deploy-09.png "Deployment Config")
 
-    ![09-application-route](images/consume-12.png "Route")
+1. Scroll down and click in the **www** link in the *BUILDS* section.
+
+    ![10-builds](images/deploy-10.png "Builds")
+
+1. In the build configuration page, change to the **Environment** tab. Fill in the available row with the following information:
+
+    * Name: **API\_BACKEND\_URL**
+    * Value: **http://location-service-userX.apps.GUID.openshiftworkshop.com/locations**
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+    ![11-environment](images/deploy-11.png)
+
+    _Click the **Add Value** link to enable a new row if not already present_.
+
+1. Click **Save** button to persist the changes. A green pop up will show you that the changes were saved.
+
+1. Click the **Start Build** button to trigger a new build using the new environment variables pointing to your service.
+
+    ![12-start-build](images/deploy-12.png "Start Build")
+
+1. Click the **Overview** menu option on the left side to go back to the your project overview page.
+
+1. In the overview page, wait until the running *Build is complete* and the pod circle stays blue continously. This means the application was successfully deployed and now is ready to listen to requests.
+
+    ![13-build-complete](images/deploy-13.png "Build Complete")
+
+1. Click the **Routes - External Traffic** to open a new tab and connect to *International Inc* new website.
 
 1. You should now see what the development team created for International Inc. Click **LOCATIONS** to check the locations page.
 
@@ -265,16 +292,13 @@ In this step, we will edit the code provided by development to add keycloak. Key
     ```bash
     // Keycloak Ajax Start
 
-    url: "http://location-service-international.apps.GUID.openshiftworkshop.com/locations",
-
     // Keycloak Ajax End
     ```
 
-1. Replace the code between markers with the last snippet:
+1. Paste between markers the last snippet:
 
     ```bash
     // Keycloak Ajax Start
-    url: "https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com/locations",
     headers: {
          'Authorization': 'Bearer ' + token
     },
@@ -353,9 +377,26 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
 1. Go back to your OpenShift web console. Navigate to your project's overview page.
 
-1. Open the kebab menu in the right side of the application information row. Click **Start Build**. 
+1. Scroll down and click in the **www** link in the *BUILDS* section.
 
-    ![19-deployment-menu](images/consume-19.png "Deployment Menu")
+    ![10-builds](images/deploy-10.png "Builds")
+
+1. In the build configuration page, change to the **Environment** tab. 
+
+1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL:
+
+    * Name: **API\_BACKEND\_URL**
+    * Value: **https://location-userX-api.amp.apps.GUID.openshiftworkshop.com/locations**
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+    ![14-environment](images/deploy-14.png "Replace URL")
+
+1. Click **Save** button to persist the changes. A green pop up will show you that the changes were saved.
+
+1. Click the **Start Build** button to trigger a new build using the new environment variables pointing to your service.
+
+    ![12-start-build](images/deploy-12.png "Start Build")
 
 1. A new build will be triggered. Expand the row by clicking the **Builds** Icon.
 
@@ -363,7 +404,7 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
     *The build process checks out the code from the git repo, runs a source-to-image container image build, and redeploys the container with the new image using a rolling upgrade strategy*.
 
-1. Wait for the build to complete and the rolling upgrade to finish to test your new deployment.
+1. Wait for until the new **Build to complete** and the rolling upgrade to finish to test your new deployment.
 
     ![21-build-complete](images/consume-21.png "Build Complete")
 
