@@ -32,6 +32,8 @@ A rough agenda for the workshop looks like this:
 
 ### Slides
 
+Check the latest [Slides](https://docs.google.com/presentation/d/1nizTZlzuO7AqQkEHr1OxDoIW2Wew7Gxe2a93sPqfiQE/edit?usp=sharing) for delivering this workshop.
+
 ### Labs
 
 Session 1: API Design, Deployment and Management
