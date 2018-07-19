@@ -38,21 +38,21 @@ Check the latest [Slides](https://docs.google.com/presentation/d/1nizTZlzuO7AqQk
 
 Session 1: API Design, Deployment and Management
 
-* [01. API Design](docs/labs/lab01/) - Create an OpenAPI Specification-based Contract
-* [02. API Deployment](docs/labs/lab02/) - Deploying APIs to OpenShift
-* [03. API Management](docs/labs/lab03/) - Take Control of APIs
+* [01. API Design](docs/labs/lab01/#lab-1) - Create an OpenAPI Specification-based Contract
+* [02. API Deployment](docs/labs/lab02/#lab-2) - Deploying APIs to OpenShift
+* [03. API Management](docs/labs/lab03/#lab-3) - Take Control of APIs
 
 Session 2: API Security and Usage
 
-* [04. API Security](docs/labs/lab04/) - Securing APIs with OpenID Connect and Red Hat Single Sign On
-* [05. API Developers](docs/labs/lab05/) - Discovering APIs from Developer Portal
-* [06. API Consumption](docs/labs/lab06/) - Connect Applications and APIs
+* [04. API Security](docs/labs/lab04/#lab-4) - Securing APIs with OpenID Connect and Red Hat Single Sign On
+* [05. API Developers](docs/labs/lab05/#lab-5) - Discovering APIs from Developer Portal
+* [06. API Consumption](docs/labs/lab06/#lab-6) - Connect Applications and APIs
 
 ### Optional Labs
 
-* [A. API Mocking](docs/labs/lab102/) - Bring your APIs to Life
+* [A. API Mocking](docs/labs/lab102/#lab-102) - Bring your APIs to Life
 
-We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification-based Contract](docs/labs/lab01/)
+We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification-based Contract](docs/labs/lab01/#lab-1)
 
 ### Installation
 
