@@ -1,6 +1,8 @@
-# API Consumption
+# Lab 6
 
-## Connect Applications and APIs
+## API Consumption
+
+### Connect Applications and APIs
 
 * Duration: 15 mins
 * Audience: API Consumers, Developers, Architects
@@ -41,7 +43,7 @@ https://master.1234.openshiftworkshop.com
 
 **Credentials:**
 
-Your username is your asigned user number. For example, if you are assigned user number **1**, your username is: 
+Your username is your asigned user number. For example, if you are assigned user number **1**, your username is:
 
 ```bash
 user1
@@ -207,7 +209,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
     <!-- Keycloak Adapter End -->
     ```
 
-1. Import the Javascript Adapter library by pasting between the previous markers the following code:   
+1. Import the Javascript Adapter library by pasting between the previous markers the following code:
 
     ```bash
     <script src="SSO_URL/auth/js/keycloak.js"></script>
