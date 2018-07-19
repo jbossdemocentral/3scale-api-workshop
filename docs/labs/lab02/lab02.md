@@ -17,8 +17,6 @@ Red Hat OpenShift is one of the leading container management platforms available
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to deploy a Red Hat Fuse application to OpenShift.
-
 If you are planning to follow to the next lab, there is an already deployed and running Location API Service in this endpoint:
 
 ```bash
@@ -130,8 +128,10 @@ In this lab we will use Environment Variables.
 
 1. Fill in with the following information regarding the location of the International Inc Database.
 
-    * Name: **MYSQL\_SERVICE\_HOST**, Value: **mysql.international.svc**
-    * Name: **MYSQL\_SERVICE\_PORT**, Value: **3306**
+    * Name: **MYSQL\_SERVICE\_HOST**
+    * Value: **mysql.international.svc**
+    * Name: **MYSQL\_SERVICE\_PORT**
+    * Value: **3306**
 
     ![11-environment-variables](images/deploy-11.png)
 
@@ -187,5 +187,3 @@ You can now proceed to [Lab 3](../lab03/lab03.md)
 * [OpenShift Interactive Portal](https://learn.openshift.com/)
 * [Contract First API Design with Apicurio and Fuse/Camel](http://wei-meilin.blogspot.com/2018/07/fuse-contract-first-api-design-with.html)
 * [Applying API Best Practices in Fuse](http://wei-meilin.blogspot.com/2017/01/red-hat-jboss-fuse-applying-api-best.html)
-
-> Additional links

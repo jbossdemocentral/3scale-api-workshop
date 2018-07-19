@@ -17,12 +17,10 @@ Red Hat provides one the leading API Management tools which provide management s
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to configure your service using Red Hat 3scale API Management.
-
 If you are planning to follow to the next lab, there is an already running API proxy for the Location API Service in this endpoint:
 
 ```bash
-http://location-service-api.amp.apps.GUID.openshiftworkshop.com
+https://location-service-api.amp.apps.GUID.openshiftworkshop.com
 ```
 
 ### Environment
@@ -105,7 +103,7 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![04-base-url](images/04-base-url.png)
 
-1. Scroll down and expand the **mapping rules** section to define the allowed methods on our exposed API.
+1. Scroll down and expand the **MAPPING RULES** section to define the allowed methods on our exposed API.
 
     *The default mapping is the root ("/") of our API resources, something that we might want to avoid*.
 
@@ -149,10 +147,61 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![07b-getall-rule.png](images/07b-getall-rule.png)
 
+### Step 2: Define your API Policies
+
+Red Hat 3scale API Management provides units of functionality that modify the behavior of the API Gateway without the need to implement code. These management components are know in 3scale as policies.
+
+The order in which the policies are executed, known as the “policy chain”, can be configured to introduce differing behavior based on the position of the policy in the chain. Adding custom headers, perform URL rewriting, enable CORS, and configurable caching are some of the most common API gateway capabilities implemented as policies.
+
+1. Scroll down and expand the **POLICIES** section to define the allowed methods on our exposed API.
+
+    ![01-policies](images/policies-01.png "Policies")
+
+    *The default policy in the Policy Chain is APIcast. This is the main policy and must of the times you want to keep it*.
+
+1. Click the **Add Policy** link to add a new policy to the chain.
+
+    ![02-add-policy](images/policies-02.png)
+
+    _Out-of-the-box 3scale includes a set of policies you can use to modify the way your API gateway behaves. For this lab, we will focus on the **Cross Origin Resource Sharing (CORS)** one as we will use it in the consumption lab_.
+
+1. Click in the **CORS** link to add the policy.
+
+    ![03-cors-policy](images/policies-03.png "CORS")
+
+1. Put your mouse over the right side of the policy name to enable the reorder of the chain. Drag and drop the CORS policy to the top of the chain.
+
+    ![04-chain-order](images/policies-04.png "Chain Order")
+
+1. Now **CORS** policy will be executed before the **APIcast**. Click the **CORS** link to edit the policy.
+
+    ![05-cors-configuration](images/policies-05.png "Cors Configuration")
+
+1. In the *Edit Policy* section, click the green **+** button to add the allowed headers.
+
+    ![06-add-headers](images/policies-06.png "Add Allow Headers")
+
+1. Type **Authorization** in the *Allowed headers* field. 
+
+    ![07-authorization-header](images/policies-07.png "Add Authorization Header")
+
+1. Tick the **allow_credentials** checkbox and fill in with a star (**\***) the *allow_origin* text box.
+
+    ![08-allow-origin](images/policies-08.png "Allow Origin")
+
+1. Click twice the green **+** button under *ALLOW_METHODS* to enable two combo boxes for the CORS allowed methods.
+
+1. Select **GET** from the first box and **OPTIONS** from the second box.
+
+    ![09-allow-methods](images/policies-09.png "Allow Methods")
+
+1. Click the **Submit** button to save the policy configuration.
+
+### Step 3: Configure the Upstream Endpoint
 
 1. Scroll back to the top of the page. Fill in the information for accessing your API:
 
-    * Private Base URL: **http://location-service.user1.svc:8080**
+    * Private Base URL: **http://location-service.userX.svc:8080**
 
     * Staging Public Base URL: **https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com:443**
 
@@ -186,11 +235,16 @@ Your 3scale Admin Portal provides access to a number of configuration features.
 
     ![08a-promote-production.png](images/08a-promote-production.png)
 
-*Congratulations!* You have configured 3scale access control layer as a proxy to only allow authenticated calls to your backend API.
+*Congratulations!* You have configured 3scale access control layer as a proxy to only allow authenticated calls to your backend API. 3scale is also now:
+
+* Authenticating (If you test with an incorrect API key it will fail) 
+* Recording calls (Visit the Analytics tab to check who is calling your API).
 
 ## Steps Beyond
 
-> So, you want more? ...
+In this lab we just covered the basic creating of a proxy for our API service. Red Hat 3scale API Management also allows us to get a track of the security (as you can see in the next lab) as well as the usage of our API. If getting value from APIs is also important to you, 3scale allows you to monetize your APIs with it's embedded billing system.
+
+Try to navigate through the rest of the tabs of your Administration Portal. Did you notice that there are application plans associated to your API? Application Plans allow you to take actions based on the usage of your API, like doing rate limiting or charging by hit or monthly usage.
 
 ## Summary
 

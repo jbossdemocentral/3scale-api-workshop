@@ -15,17 +15,19 @@ Applications can be built from many technologies. In this case we use a simple w
 
 ### Skipping The Lab
 
-We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](wip-link) where you can see how to configure your application to consume an API service managed with 3scale. 
+If you decide to skip the lab you can check how a SSO enabled web applications looks like:
 
-If you are planning to follow the next lab, here is a [link](wip-link) to the deployed application.
+```bash
+http://www-international.apps.GUID.openshiftworkshop.com
+```
 
 ### Environment
 
 **URLs:**
 
-Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**. 
+Check with your instruction the *GUID* number of your current workshop environment. Replace the actual number on all the URLs where you find **GUID**.
 
-Example in case of *GUID* = **1234**: 
+Example in case of *GUID* = **1234**:
 
 ```bash
 https://master.GUID.openshiftworkshop.com
@@ -85,7 +87,7 @@ Follow this instructions to set up the repository.
 
     *You now have a working copy of the International Inc Web page. If you know how to, clone the repository to work locally, or you can continue working using Gogs online editor*.
 
-### Step 1: Deploying International Inc Web Page
+### Step 1: Deploying International Inc Web Page
 
 International Inc web development create a Node.js application for the company home page. They added a map service to locate the offices around the world. In this step you will deploy that application.
 
@@ -138,11 +140,38 @@ International Inc web development create a Node.js application for the company h
 
     _If you clicked the **Close** button, click **Overview** in the left side menu to review the deployment status_.
 
-1. In the overview page, wait until the pod circle stays blue continously. This means the application was successfully deployed and now is ready to listen to requests.
+1. From your overview page, click the white space next to the **www** link to expand the deployment information.
 
-1. Click the external route to open a new tab and connect to *International Inc* new website.
+    ![09-deployment-config](images/deploy-09.png "Deployment Config")
 
-    ![09-application-route](images/consume-12.png "Route")
+1. Scroll down and click in the **www** link in the *BUILDS* section.
+
+    ![10-builds](images/deploy-10.png "Builds")
+
+1. In the build configuration page, change to the **Environment** tab. Fill in the available row with the following information:
+
+    * Name: **API\_BACKEND\_URL**
+    * Value: **http://location-service-userX.apps.GUID.openshiftworkshop.com/locations**
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+    ![11-environment](images/deploy-11.png)
+
+    _Click the **Add Value** link to enable a new row if not already present_.
+
+1. Click **Save** button to persist the changes. A green pop up will show you that the changes were saved.
+
+1. Click the **Start Build** button to trigger a new build using the new environment variables pointing to your service.
+
+    ![12-start-build](images/deploy-12.png "Start Build")
+
+1. Click the **Overview** menu option on the left side to go back to the your project overview page.
+
+1. In the overview page, wait until the running *Build is complete* and the pod circle stays blue continously. This means the application was successfully deployed and now is ready to listen to requests.
+
+    ![13-build-complete](images/deploy-13.png "Build Complete")
+
+1. Click the **Routes - External Traffic** to open a new tab and connect to *International Inc* new website.
 
 1. You should now see what the development team created for International Inc. Click **LOCATIONS** to check the locations page.
 
@@ -181,7 +210,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
 1. Import the Javascript Adapter library by pasting between the previous markers the following code:   
 
     ```bash
-    <script src="http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/js/keycloak.js"></script>
+    <script src="SSO_URL/auth/js/keycloak.js"></script>
     ```
     *Remember to replace the GUID with your [environment](#environment) value*.
 
@@ -213,8 +242,8 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
     ```bash
     var keyOptions = {
-        url: 'http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth',
-        realm: 'userX',
+        url: 'SSO_URL/auth',
+        realm: 'SSO_REALM',
         clientId: 'CLIENT_ID'
     };
 
@@ -242,7 +271,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
     document.getElementById('loginUrl').href = loginUrl;
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*.
+    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*. You don't need to replace SSO_URL nor SSO_REALM as those are environment variables we are adding later to de build configuration.
 
 1. Continue scrolling down until you find the next markers:
 
@@ -263,16 +292,13 @@ In this step, we will edit the code provided by development to add keycloak. Key
     ```bash
     // Keycloak Ajax Start
 
-    url: "http://location-service-international.apps.GUID.openshiftworkshop.com/locations",
-
     // Keycloak Ajax End
     ```
 
-1. Replace the code between markers with the last snippet:
+1. Paste between markers the last snippet:
 
     ```bash
     // Keycloak Ajax Start
-    url: "https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com/locations",
     headers: {
          'Authorization': 'Bearer ' + token
     },
@@ -285,15 +311,98 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
     ![18-commit-changes](images/consume-18.png "Commit Changes")
 
-### Step 3: Updating OpenShift Deployment
+1. Because we are using self signed certificates, you will need to accept the certificate for the secured endpoint. Open a new browser tab or window and navigate to:
+
+    ```bash
+    https://location-userX-api-staging.amp.apps.GUID.openshiftworkshop.com/locations
+    ```
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+1. Accept the self-signed certificate if you haven't.
+
+    ![selfsigned-cert](images/00-selfsigned-cert.png "Self-Signed Cert")
+
+1. You will see that your call succeded if you see the following text in your browser:
+
+    ```bash
+    Authentication parameters missing
+    ```
+
+### Step 3: Update Red Hat Single Sign On Application Callback
+
+Redirect URLs are a critical part of the OAuth flow. After a user successfully authorizes an application, the authorization server will redirect the user back to the application with either an authorization code or access token in the URL. Because the redirect URL will contain sensitive information, it is critical that the service doesn’t redirect the user to arbitrary locations.
+
+1. Open a browser window and navigate to:
+
+    ```bash
+    http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/admin/userX/console/
+    ```
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
+
+1. Log into Red Hat Single Sign On using your designated [user and password](#environment). Click on **Sign In**.
+
+    ![00-login-sso.png](images/00-login-sso.png "RH SSO Login")
+
+1. Select **Clients** from the left menu.
+
+    ![00-clients.png](images/00-clients.png "Clients")
+
+    *3scale, through it's zync component, already synchronized the application information into the Red Hat SSO security realm*.
+
+1. Click on the **CLIENT_ID** link to view the details.
+
+    ![24-client-application](images/consume-24.png "Client Application")
+
+    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app). It will easily identificable as its and hexadecimal name*.
+
+1. Scroll down, type in and select the following options in the application configuration:
+
+    * Access Type: **Public**
+    * Standard Flow Enabled: **ON**
+    * Implicit Flow Enabled: **OFF**
+    * Valid Redirect URIs: **[http://www-userX.apps.GUID.openshiftworkshop.com/*](http://www-userX.apps.GUID.openshiftworkshop.com/*)**
+    * Web Origins: **\***
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number.*
+
+    ![25-client-config](images/consume-25.png "Client Configuration")
+
+1. Finally, click **Save** button to persist the changes.
+
+### Step 4: Updating OpenShift Deployment
 
 OpenShift let you automatically redeploy your changes when you setup a Continuous Integration / Continuous Deployment (CI/CD) pipeline through the use of webhook. For this lab we will trigger the new build and deployment manually through the OpenShift Console.
 
 1. Go back to your OpenShift web console. Navigate to your project's overview page.
 
-1. Open the kebab menu in the right side of the application information row. Click **Start Build**. 
+1. Scroll down and click in the **www** link in the *BUILDS* section.
 
-    ![19-deployment-menu](images/consume-19.png "Deployment Menu")
+    ![10-builds](images/deploy-10.png "Builds")
+
+1. In the build configuration page, change to the **Environment** tab. 
+
+1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL. Also add this new two environment variables **SSO_URL** and **SSO_REALM**.
+
+    * Name: **API\_BACKEND\_URL**
+    * Value: **https://location-userX-api.amp.apps.GUID.openshiftworkshop.com/locations**
+    * Name: **SSO\_URL**
+    * Value: **http://sso-rh-sso.apps.GUID.openshiftworkshop.com**
+    * Name: **SSO\_REALM**
+    * Value: **userX**
+
+    _Click **Add Value** to add additional rows_.
+
+    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+
+    ![14-environment](images/deploy-14.png "Replace URL")
+
+1. Click **Save** button to persist the changes. A green pop up will show you that the changes were saved.
+
+1. Click the **Start Build** button to trigger a new build using the new environment variables pointing to your service.
+
+    ![12-start-build](images/deploy-12.png "Start Build")
 
 1. A new build will be triggered. Expand the row by clicking the **Builds** Icon.
 
@@ -301,7 +410,7 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
     *The build process checks out the code from the git repo, runs a source-to-image container image build, and redeploys the container with the new image using a rolling upgrade strategy*.
 
-1. Wait for the build to complete and the rolling upgrade to finish to test your new deployment.
+1. Wait for until the new **Build to complete** and the rolling upgrade to finish to test your new deployment.
 
     ![21-build-complete](images/consume-21.png "Build Complete")
 
@@ -311,7 +420,7 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
     _You can notice now the **Sign In** button in the page_.
 
-### Step 4: Test the Single Sign On Integration
+### Step 5: Test the Single Sign On Integration
 
 1. Let's test the integration. Click the **Sign In** button.
 

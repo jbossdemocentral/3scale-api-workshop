@@ -17,12 +17,6 @@ The focal point of your developers’ experience is the API developer portal, an
 
 You can customize the look and feel of the entire Developer Portal to match your own branding. You have complete control over every element of the portal, so you can make it as easy as possible for developers to learn how to use your API.
 
-### Skipping The Lab
-
-We know sometime we don't have enough time to go over step by step on the labs. So here is a short video where you can see how to configure your Developer Portal so developers can sign up. [link](wip-link)
-
-If you are planning to follow the next lab, here is a [link](wip-link) to the gated service endpoint.
-
 ### Environment
 
 **URLs:**
@@ -111,7 +105,7 @@ r3dh4t1!
 
 1. Update the API call examples to reflect your real Fuse API calls.
 
-    *Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab. You can also copy and paste the [example](support/homepage.example) we prepared for you*.
+    *Use your production base url and add your defined methods. Dont worry if you don't have the "real" output, it won't affect the rest of the lab. You can also copy and paste the [example](https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/docs/labs/lab05/support/homepage.example) we prepared for you*.
 
 1. Click the **Publish** button.
 
@@ -165,17 +159,19 @@ r3dh4t1!
 
     ![16f-dev-signin.png](images/16f-dev-signin.png)
 
-1. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your **User Key**.
+1. You will land in the developers homepage, where you will be able to check your developers settings and retrieve your newly created **Client ID** and **Client Secret**.
 
-    ![16g-user-key.png](images/16g-user-key.png)
+    ![16g-user-credentials.png](images/16g-user-credentials.png "Application Credentials")
 
-    *Copy down this key as it is used to authenticate yourself to the managed API*.
+    *Copy down this credentials as it you will use them to authenticate yourself to the managed API*.
 
 *Congratulations!* You have successfuly customized your Developer Portal and completed a Sign Up process.
 
 ## Steps Beyond
 
-> So, you want more? ...
+So, you want more? Click the **Documentation** link. Where does it takes you? *API Docs* is where you can add your interactive documentation for your APIs. Is based on the known *Swagger UI* interface.
+
+You can add from the Admin Portal under *API Docs* the API definition to generate the live testing.
 
 ## Summary
 

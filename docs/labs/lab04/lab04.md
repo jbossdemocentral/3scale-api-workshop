@@ -19,7 +19,11 @@ The Red Hat SSO product provides important functionality for managing identities
 
 We know sometime we don't have enough time to go over step by step on the labs. So here is a [short video](https://vimeo.com/middlewarepro/3scale-security-oidc-demo) where you can see how to configure OpenID Connect for your service using Red Hat Single Sign On.
 
-If you are planning to follow the next lab, here is a [link](wip-link) to the gated service endpoint.
+If you are planning to follow to the next lab, there is an already running OpenID Connect secured API proxy for the Location API Service in this endpoint:
+
+```bash
+https://location-service-sso.amp.apps.GUID.openshiftworkshop.com
+```
 
 ### Environment
 
