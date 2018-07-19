@@ -271,7 +271,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
     document.getElementById('loginUrl').href = loginUrl;
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*. You don't need to replace SSO_URL nor SSO_REALM as those are environment variables we are adding later to de build configuration.
+    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/#step-4-create-a-test-app)*. You don't need to replace SSO_URL nor SSO_REALM as those are environment variables we are adding later to de build configuration.
 
 1. Continue scrolling down until you find the next markers:
 
@@ -355,7 +355,7 @@ Redirect URLs are a critical part of the OAuth flow. After a user successfully a
 
     ![24-client-application](images/consume-24.png "Client Application")
 
-    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app). It will easily identificable as its and hexadecimal name*.
+    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/#step-4-create-a-test-app). It will easily identificable as its and hexadecimal name*.
 
 1. Scroll down, type in and select the following options in the application configuration:
 
@@ -424,7 +424,7 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
 1. Let's test the integration. Click the **Sign In** button.
 
-1. You are being redirected to Red Hat Single Sign On **Login Page**. Login using the user credentials you created in the [API Security Lab](../lab04/lab04.md#step-2-add-user-to-realm)
+1. You are being redirected to Red Hat Single Sign On **Login Page**. Login using the user credentials you created in the [API Security Lab](../lab04/#step-2-add-user-to-realm)
 
     * Username: **apiuser**
     * Password: **apipassword**

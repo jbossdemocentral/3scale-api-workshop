@@ -234,7 +234,7 @@ Now that you can secure your API using three-leg authentication with Red Hat Sin
 
 For more information about Single Sign-On, you can check its [page](https://access.redhat.com/products/red-hat-single-sign-on).
 
-You can now proceed to [Lab 5](../lab05/lab05.md)
+You can now proceed to [Lab 5](../lab05/)
 
 ## Notes and Further Reading
 

@@ -179,7 +179,7 @@ Sometimes, something more complex could be making your deployment fail. You can 
 
 In this lab you were able to launch a new software service which implements and API and manage it using the OpenShift platform. Subsequently you were able to call the API to see if it was really deployed and accessible in the right place.  
 
-You can now proceed to [Lab 3](../lab03/lab03.md)
+You can now proceed to [Lab 3](../lab03/)
 
 ## Notes and Further Reading
 

@@ -250,7 +250,7 @@ Try to navigate through the rest of the tabs of your Administration Portal. Did 
 
 You set up an API management service and API proxies to control traffic into your API. From now on you will be able to issue keys and rights to users wishing to access the API.
 
-You can now proceed to [Lab 4](../lab04/lab04.md)
+You can now proceed to [Lab 4](../lab04/)
 
 ## Notes and Further Reading
 
