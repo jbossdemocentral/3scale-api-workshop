@@ -20,7 +20,7 @@ The workshop is intended to be delivered in person, but will provide enough guid
 * Knowledge of the current version of the OpenAPI specification: [OpenAPI Specification 3.0.1](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md)
 * Internet access with no blacklist filtering on:
   * *.openshiftworkshop.com
-  * *.onlinecurl.com 
+  * *.onlinecurl.com
 
 ### Agenda
 
@@ -38,21 +38,21 @@ Check the latest [Slides](https://docs.google.com/presentation/d/1nizTZlzuO7AqQk
 
 Session 1: API Design, Deployment and Management
 
-* [01. API Design](docs/labs/lab01/lab01.md) - Create an OpenAPI Specification-based Contract
-* [02. API Deployment](docs/labs/lab02/lab02.md) - Deploying APIs to OpenShift
-* [03. API Management](docs/labs/lab03/lab03.md) - Take Control of APIs
+* [01. API Design](docs/labs/lab01/#lab-1) - Create an OpenAPI Specification-based Contract
+* [02. API Deployment](docs/labs/lab02/#lab-2) - Deploying APIs to OpenShift
+* [03. API Management](docs/labs/lab03/#lab-3) - Take Control of APIs
 
 Session 2: API Security and Usage
 
-* [04. API Security](docs/labs/lab04/lab04.md) - Securing APIs with OpenID Connect and Red Hat Single Sign On
-* [05. API Developers](docs/labs/lab05/lab05.md) - Discovering APIs from Developer Portal
-* [06. API Consumption](docs/labs/lab06/lab06.md) - Connect Applications and APIs
+* [04. API Security](docs/labs/lab04/#lab-4) - Securing APIs with OpenID Connect and Red Hat Single Sign On
+* [05. API Developers](docs/labs/lab05/#lab-5) - Discovering APIs from Developer Portal
+* [06. API Consumption](docs/labs/lab06/#lab-6) - Connect Applications and APIs
 
 ### Optional Labs
 
-* [A. API Mocking](docs/labs/lab102/lab102.md) - Bring your APIs to Life
+* [A. API Mocking](docs/labs/lab102/#lab-102) - Bring your APIs to Life
 
-We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification-based Contract](docs/labs/lab01.md)
+We recommend you to begin your journey with the first lab [API Design - Create an OpenAPI Specification-based Contract](docs/labs/lab01/#lab-1)
 
 ### Installation
 
