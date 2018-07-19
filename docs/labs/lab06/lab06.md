@@ -210,7 +210,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
 1. Import the Javascript Adapter library by pasting between the previous markers the following code:   
 
     ```bash
-    <script src="http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth/js/keycloak.js"></script>
+    <script src="SSO_URL/auth/js/keycloak.js"></script>
     ```
     *Remember to replace the GUID with your [environment](#environment) value*.
 
@@ -242,8 +242,8 @@ In this step, we will edit the code provided by development to add keycloak. Key
 
     ```bash
     var keyOptions = {
-        url: 'http://sso-rh-sso.apps.GUID.openshiftworkshop.com/auth',
-        realm: 'userX',
+        url: 'SSO_URL/auth',
+        realm: 'SSO_REALM',
         clientId: 'CLIENT_ID'
     };
 
@@ -271,7 +271,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
     document.getElementById('loginUrl').href = loginUrl;
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*.
+    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/lab04.md#step-4-create-a-test-app)*. You don't need to replace SSO_URL nor SSO_REALM as those are environment variables we are adding later to de build configuration.
 
 1. Continue scrolling down until you find the next markers:
 
@@ -383,10 +383,16 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
 1. In the build configuration page, change to the **Environment** tab. 
 
-1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL:
+1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL. Also add this new two environment variables **SSO_URL** and **SSO_REALM**.
 
     * Name: **API\_BACKEND\_URL**
     * Value: **https://location-userX-api.amp.apps.GUID.openshiftworkshop.com/locations**
+    * Name: **SSO\_URL**
+    * Value: **http://sso-rh-sso.apps.GUID.openshiftworkshop.com**
+    * Name: **SSO\_REALM**
+    * Value: **userX**
+
+    _Click **Add Value** to add additional rows_.
 
     *Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
