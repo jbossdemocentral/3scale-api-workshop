@@ -52,7 +52,7 @@ If you didn't specify the *Valid origins* to call your SSO endpoint you will get
 
 You will see this error when doing the pre-flight check for the Ajax call.
 
-**Fix:** 
+**Fix:**
 
 1. Be sure you followed the steps to add the policies in *Lab 03*. If not, you will need to enable the CORS policy in your APIs 3scale integration page.
 
