@@ -67,7 +67,7 @@ create_tenants=true
 create_realms=true
 ```
 
-### Procedure from Bastion
+### Procedure from Bastion
 
 The recommended way to install the workshop is running the ansible playbook from the OpenShift cluster bastion machine. This is the fastest way to run the installer as it's already running in the cluster closest to the master node.
 
@@ -103,7 +103,7 @@ The recommended way to install the workshop is running the ansible playbook from
     ansible-playbook -i ansible/inventory/workshop.inventory ansible/playbooks/openshift/install.yml 
     ```
 
-### Procedure from Laptop
+### Procedure from Laptop
 
 1. Login to the OpenShift cluster.
 
