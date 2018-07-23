@@ -24,7 +24,7 @@
 
 - name: Create Backend Database
   shell: "oc new-app -f https://raw.githubusercontent.com/openshift/origin/master/examples/db-templates/mysql-ephemeral-template.json \
-  -p MYSQL_PASSWORD=password -p MYSQL_ROOT_PASSWORD=password -p MYSQL_USER=dbuser -n {{ backend_project }}"
+  -p MYSQL_PASSWORD=password -p MYSQL_ROOT_PASSWORD=password -p MYSQL_USER=dbuser -p MYSQL_MAX_CONNECTIONS=512 -n {{ backend_project }}"
   when: configure_only == 'false'
 
 - name: Create Backend API service
