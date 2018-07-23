@@ -39,7 +39,7 @@
         "enabled": true,
         "credentials" : [
           { "type" : "password",
-            "value" : "r3dh4t1!" }
+            "value" : "openshift" }
         ],
         "requiredActions": [],
         "realmRoles": [ "admin" ],
