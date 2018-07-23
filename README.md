@@ -60,6 +60,8 @@ If you feel comfortable, you can setup your own environment to host the software
 
 ### FAQ
 
+Having any trouble while doing the labs? Check this [troubleshooting guide](docs/troubleshooting.md) to check for answers for most common problems.
+
 ### Support & Ownership
 
 GitHub Repo: [https://github.com/hguerrero/3scale-api-workshop](https://github.com/hguerrero/3scale-api-workshop)

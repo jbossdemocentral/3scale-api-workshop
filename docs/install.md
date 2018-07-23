@@ -14,21 +14,7 @@ You can download the OpenShift Client Tools from [Red Hat Developers Portal Site
 
 You'll want to know how to [fork](https://help.github.com/articles/fork-a-repo/) and [clone](https://help.github.com/articles/cloning-a-repository/) a Git repository, and how to [check out a branch](https://git-scm.com/docs/git-checkout#git-checkout-emgitcheckoutemltbranchgt).
 
-### Procedure
-
 3scale API Workshop can be installed using automated Ansible playbooks or following the manual steps.
-
-1. Git Clone the 3scale API Workshop repository:
-
-    ```bash
-    git clone https://github.com/hguerrero/3scale-api-workshop.git
-    ```
-
-1. Change to the project *install* folder:
-
-    ```bash
-    cd 3scale-api-workshop/support/install
-    ```
 
 ### Installing using Ansible
 
@@ -45,8 +31,8 @@ gogs_project | Namespace where Gogs will be installed. | gogs | Yes, if *gogs* 
 microcks_project | Namespace where Microcks will be installed | microcks | Yes, if *microcks* is enabled
 backend_project | Namespace where Backend will be installed | international | Yes, if *backend* is enabled
 sso_version | The version tag used for getting the RH SSO templates. | ose-v1.4.9 | No
-ocp_domain | Root domain of the OpenShift cluster. For example: `devday.openshiftworkshop.com` | | Yes
-ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.devday.openshiftworkshop.com`  | | Yes
+ocp_domain | Root domain of the OpenShift cluster. For example: `GUID.openshiftworkshop.com` | | Yes
+ocp\_apps\_domain | Root domain fpr the applications. For example: `apps.GUID.openshiftworkshop.com`  | | Yes
 usersno | Number of user tenants that will be created. | | Yes
 threescale | Enable Red Hat 3scale API Management. | true | No
 apicurio | Enable Apicurio Studio. | true | No
@@ -66,37 +52,69 @@ An [example inventory](../support/ansible/inventory/workshop.inventory.example) 
 localhost ansible_connection=local
 
 [workshop:vars]
-ocp_domain=apidays.openshiftoworkshop.com
-ocp_apps_domain=apps.apidays.openshiftoworkshop.com
+ocp_domain=GUID.openshiftworkshop.com
+ocp_apps_domain=apps.GUID.openshiftworkshop.com
 usersno=20
 threescale=true
 apicurio=true
 gogs=true
 microcks=true
 sso=true
+backend=true
 user_projects=true
 configure_only=false
 create_tenants=true
 create_realms=true
 ```
 
-1. Login to the OpenShift cluster.
+### Procedure from Bastion
 
-    * If running on the cluster bastion become root:
+The recommended way to install the workshop is running the ansible playbook from the OpenShift cluster bastion machine. This is the fastest way to run the installer as it's already running in the cluster closest to the master node.
 
-      ```bash
-      sudo su -
-      ```
+1. Login to the bastion machine following the email instructions.
 
-    * If running in an external client login as *opentlc-mgr* user:
+    ```bash
+    ssh -i /path/to/ocp_workshop.pem ec2-user@bastion.GUID.openshiftworkshop.com
+    ```
 
-      ```bash
-      oc login -u opentlc-mgr https://[master-hostname] --insecure-skip-tls-verify
-      ```
+    *Remember to update the GUID with your cluster environment variable and the path to the downloaded PEM file.*
+
+1. Git Clone the 3scale API Workshop repository:
+
+    ```bash
+    git clone https://github.com/hguerrero/3scale-api-workshop.git
+    ```
+
+1. Become super user running the following command:
+
+    ```bash
+    sudo su
+    ```
+
+1. Change to the project *install* folder:
+
+    ```bash
+    cd 3scale-api-workshop/support/install
+    ```
+
 1. Run the Ansible playbook.
 
     ```bash
     ansible-playbook -i ansible/inventory/workshop.inventory ansible/playbooks/openshift/install.yml 
     ```
 
-*If you install on OpenShift, it is required that you have cluster-admin access in order to set up the required roles for creating namespaces and managing resources in those namespaces*.
+### Procedure from Laptop
+
+1. Login to the OpenShift cluster.
+
+    ```bash
+    oc login -u opentlc-mgr https://master.GUID.openshiftworkshop.com --insecure-skip-tls-verify
+    ```
+
+    *If you install on OpenShift, it is required that you have cluster-admin access in order to set up the required roles for creating namespaces and managing resources in those namespaces*.
+
+1. Run the Ansible playbook.
+
+    ```bash
+    ansible-playbook -i ansible/inventory/workshop.inventory ansible/playbooks/openshift/install.yml 
+    ```
