@@ -28,7 +28,7 @@
     return_content: yes
     headers:
       Content-Type: "application/x-www-form-urlencoded"
-    body: "user_name={{ item }}&password=r3dh4t1!&retype=r3dh4t1!&email={{ item }}@example.com"
+    body: "user_name={{ item }}&password=openshift&retype=openshift&email={{ item }}@example.com"
     validate_certs: no
     status_code: 200
   register: create_tenant_result

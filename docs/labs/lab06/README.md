@@ -52,7 +52,7 @@ user1
 The password to login is always the same:
 
 ```bash
-r3dh4t1!
+openshift
 ```
 
 ## Lab Instructions
@@ -214,8 +214,6 @@ In this step, we will edit the code provided by development to add keycloak. Key
     ```bash
     <script src="SSO_URL/auth/js/keycloak.js"></script>
     ```
-    *Remember to replace the GUID with your [environment](#environment) value*.
-
 1. Continue scrolling down until you find the next markers:
 
     ```bash
@@ -273,7 +271,7 @@ In this step, we will edit the code provided by development to add keycloak. Key
     document.getElementById('loginUrl').href = loginUrl;
     ```
 
-    *Remember to replace the GUID with your [environment](#environment) value, your user number and, CLIENT_ID with the one you got in the [API Security Lab](../lab04/#step-4-create-a-test-app)*. You don't need to replace SSO_URL nor SSO_REALM as those are environment variables we are adding later to de build configuration.
+    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/#step-4-create-a-test-app), it should look like `clientId: 'e343da3'`*.
 
 1. Continue scrolling down until you find the next markers:
 
@@ -306,8 +304,6 @@ In this step, we will edit the code provided by development to add keycloak. Key
     },
     // Keycloak Ajax End
     ```
-
-    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
 1. Scroll to the bottom of the page. Update the *Commit Changes* inputs and click **Commit Changes** to save your work.
 

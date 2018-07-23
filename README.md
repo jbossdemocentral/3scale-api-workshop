@@ -56,9 +56,11 @@ We recommend you to begin your journey with the first lab [API Design - Create a
 
 ### Installation
 
-If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [install instructions](docs/install.md) to install and configure the environment.
+If you feel comfortable, you can setup your own environment to host the software required in the labs. Follow the [install instructions](docs/install.md#installation) to install and configure the environment.
 
 ### FAQ
+
+Having any trouble while doing the labs? Check this [troubleshooting guide](docs/troubleshooting.md#troubleshooting) to check for answers for most common problems.
 
 ### Support & Ownership
 
@@ -68,4 +70,4 @@ Feel free to ask [Hugo Guerrero](mailto:hguerrero@redhat.com) if you need some s
 
 ### Contributing
 
-We welcome all forms of contribution (content, issues/bugs, feedback). Please see the [Contribution Guidelines](docs/contributing.md) for ways to help
+We welcome all forms of contribution (content, issues/bugs, feedback). Please see the [Contribution Guidelines](docs/contributing.md#guides-for-contributing) for ways to help

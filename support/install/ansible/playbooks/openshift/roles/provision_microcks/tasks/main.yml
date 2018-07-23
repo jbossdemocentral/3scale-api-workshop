@@ -45,7 +45,7 @@
     headers:
       Content-Type: "application/json"
       Authorization: "Bearer {{ TKN }}"
-    body: "{\"username\":\"{{ item }}\",\"enabled\":true,\"firstName\":\"{{ item }}\",\"credentials\":[{\"type\":\"password\",\"value\":\"r3dh4t1!\",\"temporary\":false}]}"
+    body: "{\"username\":\"{{ item }}\",\"enabled\":true,\"firstName\":\"{{ item }}\",\"credentials\":[{\"type\":\"password\",\"value\":\"openshift\",\"temporary\":false}]}"
     body_format: json
     validate_certs: no
     status_code: 201

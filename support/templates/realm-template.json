@@ -10,7 +10,7 @@
       "email" : "userx@openshiftworkshop.com",
       "credentials" : [ {
         "type" : "password",
-        "value" : "r3dh4t1!"
+        "value" : "openshift"
       } ],
       "realmRoles" : [ "admin", "offline_access", "uma_authorization" ],
       "clientRoles" : {

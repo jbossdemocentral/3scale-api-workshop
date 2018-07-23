@@ -46,7 +46,7 @@ user1
 The password to login is always the same:
 
 ```bash
-r3dh4t1!
+openshift
 ```
 
 ## Lab Instructions
