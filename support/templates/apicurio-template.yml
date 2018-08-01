@@ -666,12 +666,12 @@ parameters:
 - name: UI_JVM_MAX
   displayName: UI Max JVM Memory Limit
   description: UI Max JVM Memory Limit
-  value: 1200m
+  value: 2048m
   required: false
 - name: UI_MEM_LIMIT
   displayName: UI Max Memory Limit
   description: UI Pods Max Memory Limit
-  value: 1500Mi
+  value: 4Gi
   required: true
 - name: UI_MEM_REQUEST
   displayName: UI Memory Request
