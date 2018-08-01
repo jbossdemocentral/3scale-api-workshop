@@ -6,10 +6,13 @@
   shell: "curl --insecure -X POST 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/realms/master/protocol/openid-connect/token' \
   -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=keyadmin' -d 'password=keypassword' -d 'grant_type=password' -d 'client_id=admin-cli'"
   register: token_text
+  when: create_realms
 
 - set_fact: TKN={{ (token_text.stdout | from_json).access_token }}
+  when: create_realms
 
 - debug: var=TKN
+  when: create_realms
 
 - name: Get Apicurio realm
   uri:
@@ -22,8 +25,10 @@
   when: create_realms
 
 - set_fact: realm={{ apicurio_realm.content | regex_replace('APICURIO_UI_URL', 'http://apicurio-studio.' + ocp_apps_domain) }}
+  when: create_realms
 
 - debug: var=realm
+  when: create_realms
 
 - name: Create Apicurio Realm
   uri: 
@@ -36,7 +41,8 @@
       Authorization: "Bearer {{ TKN }}"
     return_content: yes
     validate_certs: no
-    status_code: 201  
+    status_code: 201
+  when: create_realms
 
 - name: Create Apicurio users
   uri: 
@@ -50,6 +56,7 @@
     validate_certs: no
     status_code: 201
   with_sequence: start=1 end={{ usersno }} format=user%d
+  when: create_realms
 
 - name: Create Apicurio app
   shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/apicurio-template.yml \
