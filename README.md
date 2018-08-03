@@ -64,7 +64,7 @@ Having any trouble while doing the labs? Check this [troubleshooting guide](docs
 
 ### Support & Ownership
 
-GitHub Repo: [https://github.com/hguerrero/3scale-api-workshop](https://github.com/hguerrero/3scale-api-workshop)
+GitHub Repo: [https://github.com/jbossdemocentral/3scale-api-workshop](https://github.com/jbossdemocentral/3scale-api-workshop)
 
 Feel free to ask [Hugo Guerrero](mailto:hguerrero@redhat.com) if you need some support when there are any questions left or if you need some support.
 

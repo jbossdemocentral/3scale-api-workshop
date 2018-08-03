@@ -13,7 +13,7 @@
 
 - name: Get Microcks realm
   uri:
-    url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/microcks-realm.json'
+    url: 'https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/microcks-realm.json'
     return_content: yes
   register: microcks_realm
   when: create_realms
@@ -52,7 +52,7 @@
   with_sequence: start=1 end={{ usersno }} format=user%d
 
 - name: Create Microcks app
-  shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/microcks-template.yml \
+  shell: "oc new-app -f https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/microcks-template.yml \
   -p KEYCLOAK_ROUTE_HOSTNAME=sso-{{sso_project}}.{{ ocp_apps_domain }} -p APP_ROUTE_HOSTNAME={{ microcks_project }}.{{ ocp_apps_domain }} \
   -n {{ microcks_project }}"
   when: configure_only == 'false'

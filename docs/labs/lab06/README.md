@@ -79,7 +79,7 @@ Follow this instructions to set up the repository.
 
 1. Fill in the information of the repository migration with the following values:
 
-    * Clone Address: **https://github.com/hguerrero/3scaleworkshop-wwwpage.git**
+    * Clone Address: **https://github.com/jbossdemocentral/3scaleworkshop-wwwpage.git**
     * Owner: **UserX**
     * Repository Name: **www-page**
 

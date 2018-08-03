@@ -113,7 +113,7 @@
 
 - name: Get policy chain template
   uri:
-    url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/policy-config.json'
+    url: 'https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/policy-config.json'
     return_content: yes
   register: get_policies
   when: proxy_config is defined

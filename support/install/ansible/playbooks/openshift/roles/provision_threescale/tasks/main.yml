@@ -3,7 +3,7 @@
   shell: "oc project default"
 
 - name: Create the 3scale app
-  shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/amp-template.yml \
+  shell: "oc new-app -f https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/amp-template.yml \
   --param WILDCARD_DOMAIN={{ ocp_apps_domain }} --param ADMIN_PASSWORD=password --param WILDCARD_POLICY=Subdomain \
   --param ADMIN_ACCESS_TOKEN=admintoken --param MASTER_PASSWORD=password --param MASTER_ACCESS_TOKEN=mastertoken -n {{ namespace }}"
   when: configure_only == 'false'

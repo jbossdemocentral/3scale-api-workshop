@@ -16,7 +16,7 @@
 
 - name: Get Apicurio realm
   uri:
-    url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/apicurio-realm.json'
+    url: 'https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/apicurio-realm.json'
     return_content: yes
   register: apicurio_realm
   when: create_realms
@@ -59,7 +59,7 @@
   when: create_realms
 
 - name: Create Apicurio app
-  shell: "oc new-app -f https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/apicurio-template.yml \
+  shell: "oc new-app -f https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/apicurio-template.yml \
   -p UI_ROUTE=apicurio-studio.{{ ocp_apps_domain }} -p API_ROUTE=apicurio-studio-api.{{ ocp_apps_domain }} \
   -p WS_ROUTE=apicurio-studio-ws.{{ ocp_apps_domain }} -p AUTH_ROUTE=secure-sso-{{sso_project}}.{{ocp_apps_domain}} -n {{ apicurio_project }}"
   when: configure_only == 'false'

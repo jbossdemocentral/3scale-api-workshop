@@ -44,7 +44,7 @@
 
 - name: Get templated realm
   uri:
-    url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/realm-template.json'
+    url: 'https://raw.githubusercontent.com/jbossdemocentral/3scale-api-workshop/master/support/templates/realm-template.json'
     return_content: yes
   register: get_realm
   when: create_realms

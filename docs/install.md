@@ -82,7 +82,7 @@ The recommended way to install the workshop is running the ansible playbook from
 1. Git Clone the 3scale API Workshop repository:
 
     ```bash
-    git clone https://github.com/hguerrero/3scale-api-workshop.git
+    git clone https://github.com/jbossdemocentral/3scale-api-workshop.git
     ```
 
 1. Become super user running the following command:
