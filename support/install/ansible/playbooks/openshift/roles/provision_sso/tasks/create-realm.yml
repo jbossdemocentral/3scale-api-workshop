@@ -15,19 +15,19 @@
     validate_certs: no
     status_code: 201
 
-- name: Get id for clients
+- name: Get id for 3scale-client
   shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/clients' \
   -H 'Content-Type: application/json' -H 'Authorization: Bearer {{TKN}}'"
   register: clients_text
 
-- set_fact: IdClient={{ (clients_text.stdout | from_json | json_query(query)) }}
+- set_fact: IdClientAdmin={{ (clients_text.stdout | from_json | json_query(query)) }}
   vars:
     query: "[?clientId=='3scale-admin'] | [0].id"
 
-- debug: var=IdClient
+- debug: var=IdClientAdmin
 
 - name: Get id for service account '3scale-admin'
-  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/clients/{{ IdClient }}/service-account-user' \
+  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/clients/{{ IdClientAdmin }}/service-account-user' \
   -H 'Content-Type: application/json' -H 'Authorization: Bearer {{ TKN }}'"
   register: users_text
 
@@ -35,14 +35,14 @@
 
 - debug: var=IdUser
 
-- set_fact: IdClient={{ (clients_text.stdout | from_json | json_query(query)) }}
+- set_fact: IdClientMgmt={{ (clients_text.stdout | from_json | json_query(query)) }}
   vars:
     query: "[?clientId=='realm-management'] | [0].id"
 
-- debug: var=IdClient
+- debug: var=IdClientMgmt
 
 - name: Get id for role 'manage-clients'
-  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/users/{{ IdUser }}/role-mappings/clients/{{ IdClient }}/available' \
+  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/users/{{ IdUser }}/role-mappings/clients/{{ IdClientMgmt }}/available' \
   -H 'Content-Type: application/json' -H 'Authorization: Bearer {{ TKN }}'"
   register: roles_text
 
@@ -53,6 +53,6 @@
 - debug: var=IdRole
 
 - name: Add role 'manage-clients' to service account
-  shell: "curl --insecure -X POST 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/users/{{ IdUser }}/role-mappings/clients/{{ IdClient }}' \
+  shell: "curl --insecure -X POST 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/{{ item }}/users/{{ IdUser }}/role-mappings/clients/{{ IdClientMgmt }}' \
   -H 'Content-Type: application/json' -H 'Authorization: Bearer {{ TKN }}' -d '{{ IdRole | to_json }}'"
   register: outcome_text

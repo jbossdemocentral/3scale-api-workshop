@@ -25,5 +25,76 @@
   with_sequence: start=1 end={{ usersno }} format=user%d
   when: create_tenants
 
+- name: Create apikey service
+  include_tasks: ./create-service.yml
+  vars:
+    admintoken: 'admintoken'
+    account_id: '3'
+    name: 'Location API'
+    backend_version: '1'
+    system_name: 'location-api'
+    proxy_config: 
+      production_endpoint: 'https://location-api.amp.{{ ocp_apps_domain }}:443'
+      staging_endpoint: 'https://location-api-staging.amp.{{ ocp_apps_domain }}:443'
+      backend_endpoint: 'http://location-service-{{ backend_project }}.{{ ocp_apps_domain }}:80'
+    application_plan:
+      name: 'Simple'
+      system_name: 'simple'
+    app_config:
+      id: 'www-app'
+      name: 'Webapp'
+      description: 'Simple WebApp'
+
+- name: Get SSO Token Longer Lifespan
+  shell: "curl --insecure -X POST 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/realms/master/protocol/openid-connect/token' \
+  -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=keyadmin' -d 'password=keypassword' -d 'grant_type=password' -d 'client_id=admin-cli'"
+  register: token_text
+  when: TKN is undefined
+
+- set_fact: TKN={{ (token_text.stdout | from_json).access_token }}
+  when: TKN is undefined
+
+- name: Get id for 3scale-client
+  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/threescale/clients' \
+  -H 'Content-Type: application/json' -H 'Authorization: Bearer {{TKN}}'"
+  register: clients_text
+
+- set_fact: IdClientAdmin={{ (clients_text.stdout | from_json | json_query(query)) }}
+  vars:
+    query: "[?clientId=='3scale-admin'] | [0].id"
+
+- debug: var=IdClientAdmin
+
+- name: Get client secret
+  shell: "curl --insecure 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/threescale/clients/{{ IdClientAdmin }}/client-secret' \
+  -H 'Content-Type: application/json' -H 'Authorization: Bearer {{TKN}}'"
+  register: secret_text
+
+- set_fact: client_secret={{ (secret_text.stdout | from_json).value }}
+
+- debug: var=client_secret
+
+- name: Create sso service
+  include_tasks: ./create-service.yml
+  vars:
+    admintoken: 'admintoken'
+    account_id: '3'
+    name: 'SSO Location API'
+    backend_version: 'oidc'
+    system_name: 'location-sso'
+    proxy_config: 
+      production_endpoint: 'https://location-sso.amp.{{ ocp_apps_domain }}:443'
+      staging_endpoint: 'https://location-sso-staging.amp.{{ ocp_apps_domain }}:443'
+      backend_endpoint: 'http://location-service-{{ backend_project }}.{{ ocp_apps_domain }}:80'
+      sso_endpoint: 'http://3scale-admin:{{ client_secret }}@sso-{{ sso_project }}.{{ ocp_apps_domain }}/auth/realms/threescale'
+    application_plan:
+      name: 'Secure'
+      system_name: 'secure'
+    app_config:
+      id: 'www-secured'
+      name: 'Secured App'
+      description: 'SSO Secured App'
+      redirect_uri: 'http://www-{{ backend_project }}.{{ ocp_apps_domain }}/*'
+
 - name: Make sure we go back to default project
   shell: "oc project default"

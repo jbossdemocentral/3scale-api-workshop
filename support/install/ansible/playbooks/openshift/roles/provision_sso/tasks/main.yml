@@ -42,7 +42,7 @@
   delay: 60
   when: create_realms
 
-- name: Get Insurance realm
+- name: Get templated realm
   uri:
     url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/realm-template.json'
     return_content: yes
@@ -59,11 +59,11 @@
 
 - set_fact: TKN={{ (token_text.stdout | from_json).access_token }}
 
-- name: Increase Token Lifespan (30mins)
+- name: Increase Token Lifespan (60mins)
   uri: 
     url: 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/master'
     method: PUT
-    body: "{\"realm\":\"master\", \"accessTokenLifespan\":\"1800\"}"
+    body: "{\"realm\":\"master\", \"accessTokenLifespan\":\"3600\"}"
     body_format: json
     headers:
       Content-Type: "application/json"
@@ -81,9 +81,15 @@
 
 - debug: var=TKN
 
-- name: Create realms
-  include_tasks: ./create-realms.yml
+- name: Create user realms
+  include_tasks: ./create-realm.yml
   with_sequence: start=1 end={{ usersno }} format=user%d
+  when: create_realms
+
+- name: Create threescale realm
+  include_tasks: ./create-realm.yml
+  vars:
+    item: threescale
   when: create_realms
 
 - name: Make sure we go back to default project
