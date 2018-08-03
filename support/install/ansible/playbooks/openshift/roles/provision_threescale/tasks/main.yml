@@ -96,5 +96,36 @@
       description: 'SSO Secured App'
       redirect_uri: 'http://www-{{ backend_project }}.{{ ocp_apps_domain }}/*'
 
+- name: Get id for client 'www-secured'
+  uri:
+    url: 'https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/threescale/clients'
+    return_content: yes
+    headers:
+      Authorization: 'Bearer {{TKN}}'
+    validate_certs: no
+  register: client_text
+
+- set_fact: IdClientApp={{ (client_text.content | from_json | json_query(query)) }}
+  vars:
+    query: "[?clientId=='www-secured'] | [0].id"
+
+- debug: var=IdClientApp
+
+- name: Update the rh sso app
+  uri: 
+    url: "https://secure-sso-{{sso_project}}.{{ocp_apps_domain}}/auth/admin/realms/threescale/clients/{{IdClientApp}}"
+    method: PUT
+    return_content: yes
+    headers:
+      Content-Type: "application/json"
+      Authorization: 'Bearer {{TKN}}'
+    body: '{ "clientId": "www-secured", "publicClient" : "true", "rootUrl": "http://www-{{ backend_project }}.{{ ocp_apps_domain }}", "baseUrl": "/" }'
+    body_format: json
+    validate_certs: no
+    status_code: 204
+  register: update_app_result
+
+- debug: var=update_app_result
+
 - name: Make sure we go back to default project
   shell: "oc project default"
