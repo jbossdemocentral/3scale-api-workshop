@@ -105,7 +105,7 @@
       Content-Type: "application/x-www-form-urlencoded"
     body: "access_token={{ admintoken }}&plan_id={{ plan_id }}&name={{ app_config.name }}\
     &description={{ app_config.description }}&application_id={{ app_config.id }}\
-    {{ redirect_uri }}"
+    &user_key=12345{{ redirect_uri }}"
     validate_certs: no
     status_code: 201
   register: create_app_result
