@@ -111,4 +111,27 @@
   register: create_app_result
   when: app_config is defined and configure_only == 'false'
 
-- debug: var=create_app_result
+- name: Get policy chain template
+  uri:
+    url: 'https://raw.githubusercontent.com/hguerrero/3scale-api-workshop/master/support/templates/policy-config.json'
+    return_content: yes
+  register: get_policies
+  when: proxy_config is defined
+
+- debug: var=get_policies.content
+  when: proxy_config is defined
+
+- name: Enable CORS
+  uri: 
+    url: "https://3scale-admin.{{ocp_apps_domain}}/admin/api/services/{{ id }}/proxy/policies.json"
+    method: PUT
+    return_content: yes
+    headers:
+      Content-Type: "application/x-www-form-urlencoded"
+    body: "access_token={{ admintoken }}&policies_config={{ get_policies.content | urlencode }}"
+    validate_certs: no
+    status_code: 200
+  register: update_policies_result
+  when: proxy_config is defined
+
+- debug: var=update_policies_result
