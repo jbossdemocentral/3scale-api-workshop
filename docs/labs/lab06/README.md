@@ -271,8 +271,6 @@ In this step, we will edit the code provided by development to add keycloak. Key
     document.getElementById('loginUrl').href = loginUrl;
     ```
 
-    *Remember to replace CLIENT_ID with the one you got in the [API Security Lab](../lab04/#step-4-create-a-test-app), it should look like `clientId: 'e343da3'`*.
-
 1. Continue scrolling down until you find the next markers:
 
     ```bash
@@ -381,7 +379,9 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
 
 1. In the build configuration page, change to the **Environment** tab. 
 
-1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL. Also add this new two environment variables **SSO_URL** and **SSO_REALM**.
+1. **Replace** the unprotected endpoint URL with the new value of your 3scale-protected Location Service API URL. Also add this new three environment variables **SSO\_URL**, **SSO\_REALM** and **CLIENT\_ID**.
+
+    _Click **Add Value** to add additional rows_.
 
     * Name: **API\_BACKEND\_URL**
     * Value: **https://location-userX-api.amp.apps.GUID.openshiftworkshop.com/locations**
@@ -389,10 +389,10 @@ OpenShift let you automatically redeploy your changes when you setup a Continuou
     * Value: **http://sso-rh-sso.apps.GUID.openshiftworkshop.com**
     * Name: **SSO\_REALM**
     * Value: **userX**
+    * Name: **CLIENT\_ID**
+    * Value: **REPLACE\_ME**
 
-    _Click **Add Value** to add additional rows_.
-
-    *Remember to replace the GUID with your [environment](#environment) value and your user number*.
+    *Replace REPLACE\_ME with the Client ID you got in the [API Security Lab](../lab04/#step-4-create-a-test-app), it should look like `e343da3`. Remember to replace the GUID with your [environment](#environment) value and your user number*.
 
     ![14-environment](images/deploy-14.png "Replace URL")
 
